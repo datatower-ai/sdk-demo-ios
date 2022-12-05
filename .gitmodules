@@ -1,0 +1,3 @@
+[submodule "submodules/DTSDK"]
+	path = submodules/DTSDK
+	url = git@gitlab.com:nodetower/roiquery-sdk/ios/ios-roiquery-sdk.git
