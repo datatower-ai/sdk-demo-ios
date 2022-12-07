@@ -10,8 +10,8 @@
 #import "DTEventDBQueue.h"
 @interface ViewController ()
 
-@property (nonatomic , strong) DTDBManager *manager;
-@property (nonatomic, strong)DTEventDBQueue *dbQueue;
+@property (nonatomic, strong) DTDBManager *manager;
+@property (nonatomic, strong) DTEventDBQueue *dbQueue;
 
 @end
 
