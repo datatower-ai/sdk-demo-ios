@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w7m-N8-Erh">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w7m-N8-Erh">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,7 +11,7 @@
         <!--Gestures-->
         <scene sceneID="KA9-YI-Rpa">
             <objects>
-                <viewController id="w7m-N8-Erh" customClass="ViewController" customModule="AnalyticsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="w7m-N8-Erh" customClass="ViewController" customModule="demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K1p-ZO-w8l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,6 +22,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBF-Hs-Pug">
                                         <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="trackEvent:" destination="w7m-N8-Erh" eventType="touchUpInside" id="wf3-6P-Eme"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -565,7 +567,7 @@
         <!--User Set Properties View Con Troller-->
         <scene sceneID="aHh-AG-iyq">
             <objects>
-                <viewController restorationIdentifier="UserSetPropertiesViewConTroller" storyboardIdentifier="UserSetPropertiesViewConTroller" id="i7C-AL-s8V" customClass="UserSetPropertiesViewConTroller" customModule="AnalyticsDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="UserSetPropertiesViewConTroller" storyboardIdentifier="UserSetPropertiesViewConTroller" id="i7C-AL-s8V" customClass="UserSetPropertiesViewConTroller" customModule="demo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cW7-dM-Xmi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

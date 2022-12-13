@@ -17,7 +17,7 @@ class ViewController: UIViewController {
     
     var iap_placement = "test_iap_placement"
     
-    var properties:[String:Any] = ["testForproperties":"test"]
+    var properties:[String:Any] = ["#testForproperties":"test"] 
     
     let errorCode:Int = 23
     let erromsg : String = "test for errormsg"
@@ -45,7 +45,15 @@ class ViewController: UIViewController {
 //        ROIQueryAnalytics.setAccountId(accountId: "734506")
 //        ROIQueryAnalytics.track(eventName: "test2", properties: ["tast2":"234"])
     }
-
+    @IBAction func trackEvent(_ sender: Any) {
+//        [DTAnalytics trackEventName @"track_sample" properties: @{@"p":"1"}];
+        let properties1 = ["product_name": "商品名"] as [String: Any]
+        let properties2 = ["#product_name": "商品名"] as [String: Any]
+        DTAnalytics.trackEventName("track_sample", properties: properties1);
+        DTAnalytics.trackEventName("track_sample_invalid", properties: properties2);
+        
+    }
+    
     func serverTime(time:Int64,msg:String){
         print("90-9-0---"+time.description)
     }

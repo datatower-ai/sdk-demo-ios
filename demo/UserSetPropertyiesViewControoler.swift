@@ -7,7 +7,7 @@
 import UIKit
 import Foundation
 import StoreKit
-import DTSDK
+//import DTSDK
 
 class UserSetPropertiesViewConTroller: UIViewController {
     
