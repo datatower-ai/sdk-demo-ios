@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let channel :DTChannel = DTChannelAppStore
         let logDegree :DTLogDegree = DTLogDegreeVerbose
         let pro : Dictionary = [String: String]()
-        DataTower.initSDK(withAppID: "dt_271ec4a6aba6f401", channel: channel, isDebug: true, dtLogDegree: logDegree, commonProperties:pro)
+        DataTower.initSDK(withAppID: "dt_461a208fdd075c27", channel: channel, isDebug: true, dtLogDegree: logDegree, commonProperties:pro)
 
         return true
     }
