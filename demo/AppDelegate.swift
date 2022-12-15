@@ -15,10 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        let appid = "dt_461a208fdd075c27"
+        let serverUrl = "https://report-inner.roiquery.com"
+//        let serverUrl = "https://test.roiquery.com"
+//        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
         let logDegree :DTLogDegree = DTLogDegreeVerbose
-        let pro : Dictionary = [String: String]()
-        DataTower.initSDK(withAppID: "dt_461a208fdd075c27", channel: channel, isDebug: true, dtLogDegree: logDegree, commonProperties:pro)
+        DataTower.initSDK(withAppID:appid ,serverUrl: serverUrl, channel: channel, isDebug: true, dtLogDegree: logDegree)
 
         return true
     }
