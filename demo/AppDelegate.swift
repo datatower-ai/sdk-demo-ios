@@ -7,7 +7,7 @@
 
 import UIKit
 import DTSDK
-//import ROIQueryCore
+
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
         let logDegree :DTLogDegree = DTLogDegreeVerbose
-        DataTower.initSDK(withAppID:appid ,serverUrl: serverUrl, channel: channel, isDebug: true, dtLogDegree: logDegree)
+        DT.initSDK(withAppID:appid ,serverUrl: serverUrl, channel: channel, isDebug: true, dtLogDegree: logDegree)
 
         return true
     }

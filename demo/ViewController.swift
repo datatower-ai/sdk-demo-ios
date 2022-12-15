@@ -59,16 +59,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func TimerStart(_ sender: Any) {
-//        DTAnalyticsUtils.trackTimerStart(eventName: eventName)
+        DTAnalyticsUtils.trackTimerStart(eventName)
     }
     @IBAction func TimerPause(_ sender: Any) {
-//        DTAnalyticsUtils.trackTimerPause(eventName: eventName)
+        DTAnalyticsUtils.trackTimerPause(eventName)
     }
     @IBAction func resumTimer(_ sender: Any) {
-//        DTAnalyticsUtils.trackTimerResume(eventName: eventName)
+        DTAnalyticsUtils.trackTimerResume(eventName)
     }
     @IBAction func TimerEnd(_ sender: Any) {
-//        DTAnalyticsUtils.trackTimerEnd(eventName: eventName,properties: [:])
+        DTAnalyticsUtils.trackTimerEnd(eventName)
     }
     
     
@@ -160,28 +160,28 @@ class ViewController: UIViewController {
     }
    
     @IBAction func setAccountId(_ sender: Any) {
-//        let accountId = "12138"
-//        DTAnalytics.setAccountId(accountId: accountId)
+        let accountId = "12138"
+        DTAnalytics.setAccountId(accountId)
     }
     @IBAction func setFirebaseId(_ sender: Any) {
-//        let firebaseId = "firebase_12138"
-//        DTAnalytics.setFirebaseAppInstanceID(fiid: firebaseId)
+        let firebaseId = "firebase_12138"
+        DTAnalytics.setFirebaseAppInstanceId(firebaseId)
     }
     @IBAction func setAppFlyerId(_ sender: Any) {
-//        let appFlyerId = "appflyer_12138"
-//        DTAnalytics.setAppsFlyerID(afuid:  appFlyerId)
+        let appFlyerId = "appflyer_12138"
+        DTAnalytics.setAppsFlyerId(appFlyerId)
     }
     @IBAction func setAdjustId(_ sender: Any) {
-//        let adjustId = "adjustId_12138"
-//        DTAnalytics.setAdjustId(adjustId: adjustId)
+        let adjustId = "adjustId_12138"
+        DTAnalytics.setAdjustId(adjustId)
     }
     @IBAction func setFcmToken(_ sender: Any) {
 //        let fcmToken = "fcmToken_12138"
         
     }
     @IBAction func setKochavId(_ sender: Any) {
-//        let kochavId = "kochavId_12138"
-//        DTAnalytics.setKochavaID(koid: kochavId)
+        let kochavId = "kochavId_12138"
+        DTAnalytics.setKochavaId(kochavId)
     }
 }
 
