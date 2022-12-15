@@ -16,17 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Heo-Rv-odM">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Heo-Rv-odM">
                                 <rect key="frame" x="58" y="131.5" width="46" height="30"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBF-Hs-Pug">
-                                        <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="trackEvent:" destination="w7m-N8-Erh" eventType="touchUpInside" id="wf3-6P-Eme"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyh-CG-74J">
                                 <rect key="frame" x="43" y="283" width="61" height="30"/>
@@ -222,6 +213,14 @@
                                 <buttonConfiguration key="configuration" style="plain" title="adjust Id"/>
                                 <connections>
                                     <action selector="setAdjustId:" destination="w7m-N8-Erh" eventType="touchDown" id="3Py-cD-12R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBF-Hs-Pug">
+                                <rect key="frame" x="46" y="116" width="38" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Track"/>
+                                <connections>
+                                    <action selector="trackEvent:" destination="w7m-N8-Erh" eventType="touchUpInside" id="wf3-6P-Eme"/>
                                 </connections>
                             </button>
                         </subviews>
