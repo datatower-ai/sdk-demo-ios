@@ -78,28 +78,57 @@ class ViewController: UIViewController {
         
     }
     @IBAction func reportAdToShow(_ sender: Any) {
-//        DTAdReport.reportToShow(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        //        DTAdReport.reportToShow("ad123", DTAd , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        DTAdReport.report(toShow: "ad123",
+                          type: DTAdTypeRewarded,
+                          platform: DTAdPlatformAdmob,
+                          location: "home",
+                          seq: seq,
+                          properties: ["test":"testString","#test2":"testString2"],
+                          entrance: "beat boss")
     }
     @IBAction func reportAdShow(_ sender: Any) {
 //        DTAdReport.reportShow(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss"
 //        )
+        DTAdReport.reportShow("ad1234",
+                          type: DTAdTypeRewarded,
+                          platform: DTAdPlatformAdmob,
+                          location: "home",
+                          seq: seq,
+                          properties: ["test":"testString","#test2":"testString2"],
+                          entrance: "beat boss")
     }
     @IBAction func reportAdClick(_ sender: Any) {
 //        DTAdReport.reportClick(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        DTAdReport.reportClick("ad1234",
+                          type: DTAdTypeRewarded,
+                          platform: DTAdPlatformAdmob,
+                          location: "home",
+                          seq: seq,
+                          properties: ["test":"testString","#test2":"testString2"],
+                          entrance: "beat boss")
     }
     @IBAction func reportAdRewarded(_ sender: Any) {
 //        DTAdReport.reportRewarded(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        DTAdReport.reportRewarded("ad1234",
+                          type: DTAdTypeRewarded,
+                          platform: DTAdPlatformAdmob,
+                          location: "home",
+                          seq: seq,
+                          properties: ["test":"testString","#test2":"testString2"],
+                          entrance: "beat boss")
     }
     @IBAction func reportAdPaid(_ sender: Any) {
-//        DTAdReport.reportPaid(id: "",
-//                                    type: AdType.BANNER,
-//                                    platform: AdPlatform.MOPUB,
-//                                    location: "home",
-//                                    seq: seq,
-//                                    value: "5001",
-//                                    currency: "01",
-//                                    precision: "1",
-//                                    entrance: "main");
+        DTAdReport.reportPaid("ad1234",
+                                    type: DTAdTypeRewarded,
+                                    platform: DTAdPlatformAdmob,
+                                    location: "home",
+                                    seq: seq,
+                                    value: "5001",
+                                    currency: "01",
+                                    precision: "1",
+                                    properties: ["test":"testString","#test2":"testString2"],
+                                    entrance: "main");
     }
     @IBAction func reportAdImpression(_ sender: Any) {
 //        DTAdReport.reportPaid(
@@ -119,27 +148,80 @@ class ViewController: UIViewController {
     }
   
     @IBAction func adShowFail(_ sender: Any) {
-        //DTAdReport.reportAdShowFail(id: "12345", type: AdType.APP_OPEN, platform: AdPlatform.ADX, location:
-//                                        "home", seq: seq, errorCode: 1, errorMessage: "adShowFail")
+        DTAdReport.reportAdShowFail("12345",
+                                    type: DTAdTypeRewarded,
+                                    platform: DTAdPlatformAdmob,
+                                    location:"home",
+                                    seq: seq,
+                                    errorCode: -1,
+                                    errorMessage: "adShowFail",
+                                    properties: ["test":"testString","#test2":"testString2"],
+                                    entrance: "main"
+        )
     }
     @IBAction func adLoadEnd(_ sender: Any) {
-//        DTAdReport.reportLoadEnd(id: "12345", type: AdType.APP_OPEN, platform: AdPlatform.ADX, duration: Int64(30), result: true, seq: seq, errorCode: 0, errorMessage: "test ad load end")
+        DTAdReport.reportLoadEnd("12345",
+                                 type: DTAdTypeRewarded,
+                                 platform: DTAdPlatformAdmob,
+                                 duration: 30,
+                                 result: true,
+                                 seq: seq,
+                                 errorCode: 0,
+                                 errorMessage: "test ad load end",
+                                 properties: ["test":"testString","#test2":"testString2"]
+        )
     }
     @IBAction func adLoadBegin(_ sender: Any) {
-//        DTAdReport.reportLoadBegin(id: "12345", type:AdType.APP_OPEN, platform: AdPlatform.ADCOLONY, seq: seq)
+        DTAdReport.reportLoadBegin( "12345",
+                                    type:DTAdTypeRewarded,
+                                    platform: DTAdPlatformAdmob,
+                                    seq: seq,
+                                    properties: ["test":"testString","#test2":"testString2"])
     }
     @IBAction func reportAdClose(_ sender: Any) {
 //        DTAdReport.reportClose(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
 
     }
     @IBAction func reportAdConversion(_ sender: Any) {
-//        DTAdReport.reportConversionByClick(id: "12345", type: AdType.APP_OPEN, platform: AdPlatform.ADCOLONY, location: "MainController", seq: seq)
+        DTAdReport.reportConversion(byClick: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
+        
+        DTAdReport.reportConversion(byRewarded: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
+        
+        DTAdReport.reportConversion(byLeftApp: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
     }
     
     @IBAction func reportLeftApp(_ sender: Any) {
 //        let url:URL?=URL.init(string: "https://www.baidu.com/")
 //        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
-//        DTAdReport.reportLeftApp(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        DTAdReport.reportLeftApp("ad123",
+                                 type:DTAdTypeRewarded ,
+                                 platform: DTAdPlatformAdmob,
+                                 location: "home",
+                                 seq: seq,
+                                 properties: ["test":"testString","#test2":"testString2"],
+                                 entrance: "main"
+        )
     }
     
     @IBAction func reportIapEntrance(_ sender: Any) {
