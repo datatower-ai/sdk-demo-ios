@@ -139,7 +139,7 @@ class ViewController: UIViewController {
                                  location: "home",
                                  seq: seq,
                                  properties: ["test":"testString","#test2":"testString2"],
-                                 entrance: "main"
+                                 entrance: "main")
     }
   
     @IBAction func adShowFail(_ sender: Any) {
