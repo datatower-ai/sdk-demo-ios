@@ -44,6 +44,7 @@ class ViewController: UIViewController {
 //        ROIQueryAnalytics.track(eventName: "app_open", properties: ["tast":"23"])
 //        ROIQueryAnalytics.setAccountId(accountId: "734506")
 //        ROIQueryAnalytics.track(eventName: "test2", properties: ["tast2":"234"])
+        print("DataTowerId:",DTAnalytics.getDataTowerId())
     }
     @IBAction func trackEvent(_ sender: Any) {
 //        [DTAnalytics trackEventName @"track_sample" properties: @{@"p":"1"}];
@@ -283,9 +284,9 @@ class ViewController: UIViewController {
         let adjustId = "adjustId_12138"
         DTAnalytics.setAdjustId(adjustId)
     }
-    @IBAction func setFcmToken(_ sender: Any) {
-//        let fcmToken = "fcmToken_12138"
-        
+    @IBAction func setIasOriginalOrderId(_ sender: Any) {
+        let iasOriginalOrderId = "IasOriginalOrderId_12138"
+        DTAnalytics.setIasOriginalOrderId(iasOriginalOrderId)
     }
     @IBAction func setKochavId(_ sender: Any) {
         let kochavId = "kochavId_12138"

@@ -90,8 +90,8 @@
                                     <segue destination="i7C-AL-s8V" kind="show" id="kpo-3J-D1y"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userSet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-PY-YaY">
-                                <rect key="frame" x="20" y="604" width="59" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id  set" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3c9-PY-YaY">
+                                <rect key="frame" x="20" y="603.5" width="46" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -281,6 +281,17 @@
                                 <buttonConfiguration key="configuration" style="plain" title="to_purchase"/>
                                 <connections>
                                     <action selector="reportIapToPurchase:" destination="w7m-N8-Erh" eventType="touchUpInside" id="1lq-3t-hj6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3C-os-8yU">
+                                <rect key="frame" x="225" y="684" width="149" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="IasOriginalOrderId">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="setIasOriginalOrderId:" destination="w7m-N8-Erh" eventType="touchUpInside" id="wq8-Ml-2cc"/>
                                 </connections>
                             </button>
                         </subviews>

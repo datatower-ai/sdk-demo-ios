@@ -20,8 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let serverUrl = "https://test.roiquery.com"
 //        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
-        let logDegree :DTLogDegree = DTLogDegreeVerbose
-        DT.initSDK(withAppID:appid ,serverUrl: serverUrl, channel: channel, isDebug: true, dtLogDegree: logDegree)
+        let logLevel :DTLoggingLevel = DTLoggingLevelDebug;
+        DT.initSDK(appid ,serverUrl: serverUrl, channel: channel, isDebug: true, logLevel: logLevel)
 
         return true
     }
