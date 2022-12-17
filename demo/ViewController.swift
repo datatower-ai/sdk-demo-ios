@@ -131,20 +131,15 @@ class ViewController: UIViewController {
                                     entrance: "main");
     }
     @IBAction func reportAdImpression(_ sender: Any) {
-//        DTAdReport.reportPaid(
-//            id: "12435",
-//            type: AdType.REWARDED,
-//            platform: "unity", adgroupType: "",
-//            location: "home",
-//            seq: seq,
-//            mediation: AdMediation.MOPUB,
-//            mediationId: "32432545",
-//            value: "5000",
-//            currency: "usd",
-//            precision: "sdf",
-//            country: "USA",
-//            entrance: "hone"
-//                            )
+        
+        //现在不会由SDK维护，用户自行上报
+        DTAdReport.reportReturnApp("ad123",
+                                 type:DTAdTypeRewarded ,
+                                 platform: DTAdPlatformAdmob,
+                                 location: "home",
+                                 seq: seq,
+                                 properties: ["test":"testString","#test2":"testString2"],
+                                 entrance: "main"
     }
   
     @IBAction func adShowFail(_ sender: Any) {
@@ -180,6 +175,13 @@ class ViewController: UIViewController {
     }
     @IBAction func reportAdClose(_ sender: Any) {
 //        DTAdReport.reportClose(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
+        DTAdReport.reportClose("ad1234",
+                          type: DTAdTypeRewarded,
+                          platform: DTAdPlatformAdmob,
+                          location: "home",
+                          seq: seq,
+                          properties: ["test":"testString","#test2":"testString2"],
+                          entrance: "beat boss")
 
     }
     @IBAction func reportAdConversion(_ sender: Any) {
@@ -212,8 +214,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func reportLeftApp(_ sender: Any) {
-//        let url:URL?=URL.init(string: "https://www.baidu.com/")
-//        UIApplication.shared.open(url!, options: [:], completionHandler: nil)
         DTAdReport.reportLeftApp("ad123",
                                  type:DTAdTypeRewarded ,
                                  platform: DTAdPlatformAdmob,
@@ -222,23 +222,31 @@ class ViewController: UIViewController {
                                  properties: ["test":"testString","#test2":"testString2"],
                                  entrance: "main"
         )
+        
+
+        )
     }
     
     @IBAction func reportIapEntrance(_ sender: Any) {
-//        DTIAPReport.reportEntrance(order: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,placement:iap_placement)
+        DTIAPReport.reportEntrance("3421",
+                                   sku: "sku_001",
+                                   price: 3.32,
+                                   currency: "USD",
+                                   seq: seq,
+                                   placement:iap_placement)
     }
     
     @IBAction func reportIapToPurchase(_ sender: Any) {
-//        DTIAPReport.reportToPurchase(order: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq)
+        DTIAPReport.report(toPurchase: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,placement:iap_placement)
     }
     
     
     @IBAction func reportIapPurchased(_ sender: Any) {
-//        DTIAPReport.reportPurchased(order: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq)
+        DTIAPReport.reportPurchased("3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,placement:iap_placement)
     }
     
     @IBAction func reportIapNotPurchase(_ sender: Any) {
-//        DTIAPReport.reportNotToPurchased(order: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,code: "01",msg: "no menony")
+        DTIAPReport.reportNot(toPurchased: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,code: "01",msg: "no menony",placement:iap_placement)
     }
    
     @IBAction func setAccountId(_ sender: Any) {

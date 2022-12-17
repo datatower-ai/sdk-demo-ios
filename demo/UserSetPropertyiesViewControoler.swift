@@ -78,11 +78,61 @@ class UserSetPropertiesViewConTroller: UIViewController {
         
     }
     
-    
     func showProperties(properties:[String:Any])  {
         useHintShow.text = properties.description
     }
     func showProperties(text:String)  {
         useHintShow.text = text
     }
+    
+    @IBAction func iasToshow(_ sender: Any) {
+        DTIASReport.report(toShow: "order_1234", entrance: "home", placement: "vip", properties: [:])
+    }
+    @IBAction func iasShowSuccess(_ sender: Any) {
+        DTIASReport.reportShowSuccess("order_1234", entrance: "home", placement: "vip", properties: [:])
+    }
+    
+    @IBAction func iasShowFail(_ sender: Any) {
+        DTIASReport.reportShowFail("order_1234", entrance: "home", placement: "vip", errorCode: "-1", errorMsg: "cancel", properties: [:])
+    }
+    
+    @IBAction func iasSubscribe(_ sender: Any) {
+        DTIASReport.reportSubscribe("order_1234",
+                                    entrance: "home",
+                                    placement: "vip",
+                                    sku: "sku_234234",
+                                    orderId: "order_sdfsd",
+                                    price: "34.5",
+                                    currency: "usd",
+                                    properties: [:])
+    }
+    
+    
+    @IBAction func iasSubscribeSuccess(_ sender: Any) {
+        DTIASReport.reportSubscribeSuccess("order_1234",
+                                    entrance: "home",
+                                    placement: "vip",
+                                    sku: "sku_234234",
+                                    orderId: "order_sdfsd",
+                                    originalOrderId:"originalOrderId_sdfsd",
+                                    price: "34.5",
+                                    currency: "usd",
+                                    properties: [:])
+    }
+    
+    @IBAction func reportSubscribeFail(_ sender: Any) {
+        DTIASReport.reportSubscribeFail("order_1234",
+                                    entrance: "home",
+                                    placement: "vip",
+                                    sku: "sku_234234",
+                                    orderId: "order_sdfsd",
+                                    originalOrderId:"originalOrderId_sdfsd",
+                                    price: "34.5",
+                                    currency: "usd",
+                                        errorCode: "-9",
+                                        errorMsg: "no meney",
+                                    properties: [:])
+    }
+    
+    
 }

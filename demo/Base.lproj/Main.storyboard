@@ -70,7 +70,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScI-JF-PPY">
                                 <rect key="frame" x="31" y="407" width="86.5" height="50"/>
-                                <state key="normal" title="impression"/>
+                                <state key="normal" title="returnApp"/>
                                 <connections>
                                     <action selector="reportAdImpression:" destination="w7m-N8-Erh" eventType="touchUpInside" id="Bl3-ml-jrV"/>
                                 </connections>
@@ -165,15 +165,15 @@
                                     <action selector="setKochavId:" destination="w7m-N8-Erh" eventType="touchUpInside" id="tr2-fD-g78"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="userProperties" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHS-lE-3wn">
-                                <rect key="frame" x="19" y="720" width="113" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="userProperties and ias" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHS-lE-3wn">
+                                <rect key="frame" x="19" y="720" width="186" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aLP-Og-If9">
-                                <rect key="frame" x="20" y="748.5" width="115" height="30"/>
-                                <state key="normal" title="setUserProreties"/>
+                                <rect key="frame" x="20" y="749" width="168" height="30"/>
+                                <state key="normal" title="setUserProreties and ias"/>
                                 <connections>
                                     <segue destination="i7C-AL-s8V" kind="show" id="kpo-3J-D1y"/>
                                 </connections>
@@ -706,6 +706,60 @@
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RlA-lu-9tk">
+                                <rect key="frame" x="4" y="510" width="119" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_to_show"/>
+                                <connections>
+                                    <action selector="iasToshow:" destination="i7C-AL-s8V" eventType="touchUpInside" id="0Pe-6m-8Zd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LgM-Ok-bgx">
+                                <rect key="frame" x="163" y="510" width="165" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_show_success"/>
+                                <connections>
+                                    <action selector="iasShowSuccess:" destination="i7C-AL-s8V" eventType="touchUpInside" id="fF4-dI-8yq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VJi-mf-CvU">
+                                <rect key="frame" x="2" y="640" width="201" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_subscribe_success"/>
+                                <connections>
+                                    <action selector="iasSubscribeSuccess:" destination="i7C-AL-s8V" eventType="touchUpInside" id="HLG-LZ-AzW"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="syp-zo-TwM">
+                                <rect key="frame" x="4" y="571" width="125" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_show_fail"/>
+                                <connections>
+                                    <action selector="iasShowFail:" destination="i7C-AL-s8V" eventType="touchUpInside" id="XQd-Xj-R8k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftQ-7I-MUM">
+                                <rect key="frame" x="143" y="571" width="129" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_subscribe"/>
+                                <connections>
+                                    <action selector="iasSubscribe:" destination="i7C-AL-s8V" eventType="touchUpInside" id="n7d-Dq-FhG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vM-xw-EQF">
+                                <rect key="frame" x="4" y="690" width="161" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="ias_subscribe_fail"/>
+                                <connections>
+                                    <action selector="iasSubscribeFail:" destination="i7C-AL-s8V" eventType="touchUpInside" id="AXk-uG-t6d"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xsA-iZ-Meg"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
