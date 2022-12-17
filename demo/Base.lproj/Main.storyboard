@@ -235,7 +235,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="left_app"/>
                                 <connections>
-                                    <action selector="reportReturnApp:" destination="w7m-N8-Erh" eventType="touchUpInside" id="8O6-pc-pbE"/>
+                                    <action selector="reportLeftApp:" destination="w7m-N8-Erh" eventType="touchUpInside" id="r3k-Ik-q29"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rV-99-xSR">
@@ -243,6 +243,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="return_app"/>
+                                <connections>
+                                    <action selector="reportReturnApp:" destination="w7m-N8-Erh" eventType="touchUpInside" id="zLe-aF-OS1"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRj-wW-lEp">
                                 <rect key="frame" x="28" y="414" width="65" height="35"/>

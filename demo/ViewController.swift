@@ -137,6 +137,7 @@ class ViewController: UIViewController {
         )
     }
     @IBAction func reportAdPaid(_ sender: Any) {
+        //独立广告平台（用的比较多）
         DTAdReport.reportPaid("ad1234",
                                     type: DTAdTypeRewarded,
                                     platform: DTAdPlatformAdmob,
@@ -147,6 +148,21 @@ class ViewController: UIViewController {
                                     precision: "1",
                                     properties: ["test":"testString","#test2":"testString2"],
                                     entrance: "main");
+        
+        //聚合广告平台（很少用）
+        DTAdReport.reportPaid("ad1234",
+                                    type: DTAdTypeRewarded,
+                                    platform: DTAdPlatformAdmob,
+                                    location: "home",
+                                    seq: seq,
+                              mediation:DTAdMediationCombo,
+                            mediationId:"COMBO_23423",
+                                    value: "5001",
+                                    precision: "1",
+                                    country: "usa",
+                                    properties: ["test":"testString","#test2":"testString2"],
+                                    entrance: "main");
+        
     }
     @IBAction func reportReturnApp(_ sender: Any) {
         
@@ -155,18 +171,12 @@ class ViewController: UIViewController {
                                  type:DTAdTypeRewarded ,
                                  platform: DTAdPlatformAdmob,
                                  location: "home",
+                                 clickGap: 12000,
+                                 returnGap: 20000,
                                  seq: seq,
                                  properties: ["test":"testString","#test2":"testString2"],
                                  entrance: "main")
-        
-        DTAdReport.reportConversion(byLeftApp: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
+     
     }
   
     @IBAction func adShowFail(_ sender: Any) {
@@ -223,7 +233,15 @@ class ViewController: UIViewController {
                                  entrance: "main"
         )
         
-
+    
+        DTAdReport.reportConversion(byLeftApp: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
         
     }
     
