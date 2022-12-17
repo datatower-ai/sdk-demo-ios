@@ -1,3 +1,3 @@
 [submodule "submodules/DataTowerAICore"]
 	path = submodules/DataTowerAICore
-	url = git@gitlab.com:nodetower/roiquery-sdk/ios/ios-roiquery-sdk.git
+	url = https://gitlab.com/nodetower/roiquery-sdk/ios/ios-roiquery-sdk.git
