@@ -1,9 +1,3 @@
-//
-//  UserSetPropertyiesViewControoler.swift
-//  AnalyticsDemo
-//
-//  Created by Apple06 on 2022/7/12.
-//
 import UIKit
 import Foundation
 import StoreKit
