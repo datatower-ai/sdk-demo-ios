@@ -107,6 +107,15 @@ class ViewController: UIViewController {
                           seq: seq,
                           properties: ["test":"testString","#test2":"testString2"],
                           entrance: "beat boss")
+        
+        DTAdReport.reportConversion(byClick: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
     }
     @IBAction func reportAdRewarded(_ sender: Any) {
 //        DTAdReport.reportRewarded(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
@@ -117,6 +126,15 @@ class ViewController: UIViewController {
                           seq: seq,
                           properties: ["test":"testString","#test2":"testString2"],
                           entrance: "beat boss")
+        
+        DTAdReport.reportConversion(byRewarded: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
     }
     @IBAction func reportAdPaid(_ sender: Any) {
         DTAdReport.reportPaid("ad1234",
@@ -130,7 +148,7 @@ class ViewController: UIViewController {
                                     properties: ["test":"testString","#test2":"testString2"],
                                     entrance: "main");
     }
-    @IBAction func reportAdImpression(_ sender: Any) {
+    @IBAction func reportReturnApp(_ sender: Any) {
         
         //现在不会由SDK维护，用户自行上报
         DTAdReport.reportReturnApp("ad123",
@@ -140,6 +158,15 @@ class ViewController: UIViewController {
                                  seq: seq,
                                  properties: ["test":"testString","#test2":"testString2"],
                                  entrance: "main")
+        
+        DTAdReport.reportConversion(byLeftApp: "12345",
+                                           type: DTAdTypeRewarded,
+                                           platform: DTAdPlatformAdmob,
+                                           location: "home",
+                                           seq: seq,
+                                           properties: ["test":"testString","#test2":"testString2"],
+                                           entrance: "beat boss"
+        )
     }
   
     @IBAction func adShowFail(_ sender: Any) {
@@ -184,34 +211,7 @@ class ViewController: UIViewController {
                           entrance: "beat boss")
 
     }
-    @IBAction func reportAdConversion(_ sender: Any) {
-        DTAdReport.reportConversion(byClick: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-        
-        DTAdReport.reportConversion(byRewarded: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-        
-        DTAdReport.reportConversion(byLeftApp: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-    }
+
     
     @IBAction func reportLeftApp(_ sender: Any) {
         DTAdReport.reportLeftApp("ad123",
@@ -224,7 +224,7 @@ class ViewController: UIViewController {
         )
         
 
-        )
+        
     }
     
     @IBAction func reportIapEntrance(_ sender: Any) {
