@@ -6,7 +6,7 @@ target 'demo' do
   use_frameworks!
 
   # Pods for demo
-$SDKLocalPath="./submodules/DTSDK"
-pod "DTSDK" ,:path => $SDKLocalPath
+$SDKLocalPath="./submodules/DataTowerAICore"
+pod "DataTowerAICore" ,:path => $SDKLocalPath
 
 end

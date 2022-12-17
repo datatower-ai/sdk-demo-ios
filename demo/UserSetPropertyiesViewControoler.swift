@@ -1,7 +1,7 @@
 import UIKit
 import Foundation
 import StoreKit
-import DTSDK
+import DataTowerAICore
 
 class UserSetPropertiesViewConTroller: UIViewController {
     
