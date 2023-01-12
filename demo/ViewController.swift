@@ -68,198 +68,31 @@ class ViewController: UIViewController {
     
     
     /// ad
-    @IBAction func reportAdEntrance(_ sender: Any) {
-        
-    }
-    @IBAction func reportAdToShow(_ sender: Any) {
-        //        DTAdReport.reportToShow("ad123", DTAd , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
-        DTAdReport.report(toShow: "ad123",
-                          type: DTAdTypeRewarded,
-                          platform: DTAdPlatformAdmob,
-                          location: "home",
-                          seq: seq,
-                          properties: ["test":"testString","#test2":"testString2"],
-                          entrance: "beat boss")
-    }
     @IBAction func reportAdShow(_ sender: Any) {
-//        DTAdReport.reportShow(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss"
-//        )
         DTAdReport.reportShow("ad1234",
                           type: DTAdTypeRewarded,
                           platform: DTAdPlatformAdmob,
-                          location: "home",
-                          seq: seq,
-                          properties: ["test":"testString","#test2":"testString2"],
-                          entrance: "beat boss")
+                          properties: ["test":"testString","#test2":"testString2"]
+                          )
     }
-    @IBAction func reportAdClick(_ sender: Any) {
-//        DTAdReport.reportClick(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
-        DTAdReport.reportClick("ad1234",
+    
+    @IBAction func reportConversion(_ sender: Any) {
+        DTAdReport.reportConversion("ad1234",
                           type: DTAdTypeRewarded,
                           platform: DTAdPlatformAdmob,
-                          location: "home",
-                          seq: seq,
-                          properties: ["test":"testString","#test2":"testString2"],
-                          entrance: "beat boss")
-        
-        DTAdReport.reportConversion(byClick: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-    }
-    @IBAction func reportAdRewarded(_ sender: Any) {
-//        DTAdReport.reportRewarded(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
-        DTAdReport.reportRewarded("ad1234",
-                          type: DTAdTypeRewarded,
-                          platform: DTAdPlatformAdmob,
-                          location: "home",
-                          seq: seq,
-                          properties: ["test":"testString","#test2":"testString2"],
-                          entrance: "beat boss")
-        
-        DTAdReport.reportConversion(byRewarded: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-    }
-    @IBAction func reportAdPaid(_ sender: Any) {
-        //独立广告平台（用的比较多）
-        DTAdReport.reportPaid("ad1234",
-                                    type: DTAdTypeRewarded,
-                                    platform: DTAdPlatformAdmob,
-                                    location: "home",
-                                    seq: seq,
-                                    value: "5001",
-                                    currency: "01",
-                                    precision: "1",
-                                    properties: ["test":"testString","#test2":"testString2"],
-                                    entrance: "main");
-        
-        //聚合广告平台（很少用）
-        DTAdReport.reportPaid("ad1234",
-                                    type: DTAdTypeRewarded,
-                                    platform: DTAdPlatformAdmob,
-                                    location: "home",
-                                    seq: seq,
-                              mediation:DTAdMediationCombo,
-                            mediationId:"COMBO_23423",
-                                    value: "5001",
-                                    precision: "1",
-                                    country: "usa",
-                                    properties: ["test":"testString","#test2":"testString2"],
-                                    entrance: "main");
-        
-    }
-    @IBAction func reportReturnApp(_ sender: Any) {
-        
-        //现在不会由SDK维护，用户自行上报
-        DTAdReport.reportReturnApp("ad123",
-                                 type:DTAdTypeRewarded ,
-                                 platform: DTAdPlatformAdmob,
-                                 location: "home",
-                                 clickGap: 12000,
-                                 returnGap: 20000,
-                                 seq: seq,
-                                 properties: ["test":"testString","#test2":"testString2"],
-                                 entrance: "main")
-     
-    }
-  
-    @IBAction func adShowFail(_ sender: Any) {
-        DTAdReport.reportAdShowFail("12345",
-                                    type: DTAdTypeRewarded,
-                                    platform: DTAdPlatformAdmob,
-                                    location:"home",
-                                    seq: seq,
-                                    errorCode: -1,
-                                    errorMessage: "adShowFail",
-                                    properties: ["test":"testString","#test2":"testString2"],
-                                    entrance: "main"
-        )
-    }
-    @IBAction func adLoadEnd(_ sender: Any) {
-        DTAdReport.reportLoadEnd("12345",
-                                 type: DTAdTypeRewarded,
-                                 platform: DTAdPlatformAdmob,
-                                 duration: 30,
-                                 result: true,
-                                 seq: seq,
-                                 errorCode: 0,
-                                 errorMessage: "test ad load end",
-                                 properties: ["test":"testString","#test2":"testString2"]
-        )
-    }
-    @IBAction func adLoadBegin(_ sender: Any) {
-        DTAdReport.reportLoadBegin( "12345",
-                                    type:DTAdTypeRewarded,
-                                    platform: DTAdPlatformAdmob,
-                                    seq: seq,
-                                    properties: ["test":"testString","#test2":"testString2"])
-    }
-    @IBAction func reportAdClose(_ sender: Any) {
-//        DTAdReport.reportClose(id: "ad123", type:AdType.REWARDED , platform: AdPlatform.ADMOB, location: "home", seq: seq,entrance: "beat boss")
-        DTAdReport.reportClose("ad1234",
-                          type: DTAdTypeRewarded,
-                          platform: DTAdPlatformAdmob,
-                          location: "home",
-                          seq: seq,
-                          properties: ["test":"testString","#test2":"testString2"],
-                          entrance: "beat boss")
-
-    }
-
-    
-    @IBAction func reportLeftApp(_ sender: Any) {
-        DTAdReport.reportLeftApp("ad123",
-                                 type:DTAdTypeRewarded ,
-                                 platform: DTAdPlatformAdmob,
-                                 location: "home",
-                                 seq: seq,
-                                 properties: ["test":"testString","#test2":"testString2"],
-                                 entrance: "main"
-        )
-        
-    
-        DTAdReport.reportConversion(byLeftApp: "12345",
-                                           type: DTAdTypeRewarded,
-                                           platform: DTAdPlatformAdmob,
-                                           location: "home",
-                                           seq: seq,
-                                           properties: ["test":"testString","#test2":"testString2"],
-                                           entrance: "beat boss"
-        )
-        
-    }
-    
-    @IBAction func reportIapEntrance(_ sender: Any) {
-        DTIAPReport.reportEntrance("3421",
-                                   sku: "sku_001",
-                                   price: 3.32,
-                                   currency: "USD",
-                                   seq: seq,
-                                   placement:iap_placement)
-    }
-    
-    @IBAction func reportIapToPurchase(_ sender: Any) {
-        DTIAPReport.report(toPurchase: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,placement:iap_placement)
+                          properties: ["test":"testString","#test2":"testString2"]
+                          )
     }
     
     
-    @IBAction func reportIapPurchased(_ sender: Any) {
-        DTIAPReport.reportPurchased("3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,placement:iap_placement)
+    @IBAction func purchaseSuccess(_ sender: Any) {
+        DTIAPReport.reportPurchaseSuccess("order_12343", sku: "sku_34jfksd", price: 9.8, currency: "usd", properties: ["test":"testString","#test2":"testString2"])
     }
-    
-    @IBAction func reportIapNotPurchase(_ sender: Any) {
-        DTIAPReport.reportNot(toPurchased: "3421", sku: "sku_001", price: 3.32, currency: "USD", seq: seq,code: "01",msg: "no menony",placement:iap_placement)
+    @IBAction func subscribeSuccess(_ sender: Any) {
+        
+        DTIASReport.reportSubscribeSuccess("ooid_sidjf", orderId: "order_12343", sku: "sku_34jfksdsd", price: 8.7, currency: "usd", properties: ["test":"testString","#test2":"testString2"])
     }
+ 
    
     @IBAction func setAccountId(_ sender: Any) {
         let accountId = "12138"
