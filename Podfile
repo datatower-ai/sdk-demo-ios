@@ -11,6 +11,16 @@ target 'demo' do
 
 end
 
+target 'demoObjc' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for demo
+  $SDKLocalPath="./submodules/DataTowerAICore"
+  pod "DataTowerAICore" ,:path => $SDKLocalPath
+
+end
+
 
 post_install do |installer|
   installer.generated_projects.each do |project|
