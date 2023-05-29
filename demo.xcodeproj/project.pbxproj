@@ -14,6 +14,11 @@
 		184FE43E2A2487CF00125C5C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184FE43D2A2487CF00125C5C /* Assets.xcassets */; };
 		184FE4412A2487CF00125C5C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184FE43F2A2487CF00125C5C /* LaunchScreen.storyboard */; };
 		184FE4442A2487CF00125C5C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4432A2487CF00125C5C /* main.m */; };
+		184FE44A2A24A9D300125C5C /* CellViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4492A24A9D300125C5C /* CellViewModel.m */; };
+		184FE44D2A24AE4B00125C5C /* Datasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE44C2A24AE4B00125C5C /* Datasource.m */; };
+		184FE4502A24B68300125C5C /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE44F2A24B68300125C5C /* CustomCell.m */; };
+		184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4522A24BFFD00125C5C /* TrackEventViewController.m */; };
+		184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4552A24C01400125C5C /* UserRelatedAPIController.m */; };
 		1956C91766A2ED787FC37A18 /* Pods_demoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5755E4D3CD6B8CD97F9FCE0D /* Pods_demoObjc.framework */; };
 		539B9B6AC227FC8424B02448 /* Pods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2AD8559ADE9FDAFB2FA2502 /* Pods_demo.framework */; };
 		B56B6CB229476FE500F96D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6CB129476FE500F96D8D /* AppDelegate.swift */; };
@@ -38,6 +43,16 @@
 		184FE4402A2487CF00125C5C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		184FE4422A2487CF00125C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		184FE4432A2487CF00125C5C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		184FE4482A24A9D300125C5C /* CellViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellViewModel.h; sourceTree = "<group>"; };
+		184FE4492A24A9D300125C5C /* CellViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellViewModel.m; sourceTree = "<group>"; };
+		184FE44B2A24AE4B00125C5C /* Datasource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Datasource.h; sourceTree = "<group>"; };
+		184FE44C2A24AE4B00125C5C /* Datasource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Datasource.m; sourceTree = "<group>"; };
+		184FE44E2A24B68300125C5C /* CustomCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCell.h; sourceTree = "<group>"; };
+		184FE44F2A24B68300125C5C /* CustomCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCell.m; sourceTree = "<group>"; };
+		184FE4512A24BFFD00125C5C /* TrackEventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrackEventViewController.h; sourceTree = "<group>"; };
+		184FE4522A24BFFD00125C5C /* TrackEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackEventViewController.m; sourceTree = "<group>"; };
+		184FE4542A24C01400125C5C /* UserRelatedAPIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserRelatedAPIController.h; sourceTree = "<group>"; };
+		184FE4552A24C01400125C5C /* UserRelatedAPIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserRelatedAPIController.m; sourceTree = "<group>"; };
 		30D3E29174CB71B84E1FE894 /* Pods-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.debug.xcconfig"; path = "Target Support Files/Pods-demo/Pods-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		4C4DCB201646DD52C4FF0D47 /* Pods-demoObjc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoObjc.release.xcconfig"; path = "Target Support Files/Pods-demoObjc/Pods-demoObjc.release.xcconfig"; sourceTree = "<group>"; };
 		5755E4D3CD6B8CD97F9FCE0D /* Pods_demoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +113,16 @@
 				184FE43F2A2487CF00125C5C /* LaunchScreen.storyboard */,
 				184FE4422A2487CF00125C5C /* Info.plist */,
 				184FE4432A2487CF00125C5C /* main.m */,
+				184FE4482A24A9D300125C5C /* CellViewModel.h */,
+				184FE4492A24A9D300125C5C /* CellViewModel.m */,
+				184FE44B2A24AE4B00125C5C /* Datasource.h */,
+				184FE44C2A24AE4B00125C5C /* Datasource.m */,
+				184FE44E2A24B68300125C5C /* CustomCell.h */,
+				184FE44F2A24B68300125C5C /* CustomCell.m */,
+				184FE4512A24BFFD00125C5C /* TrackEventViewController.h */,
+				184FE4522A24BFFD00125C5C /* TrackEventViewController.m */,
+				184FE4542A24C01400125C5C /* UserRelatedAPIController.h */,
+				184FE4552A24C01400125C5C /* UserRelatedAPIController.m */,
 			);
 			path = demoObjc;
 			sourceTree = "<group>";
@@ -335,9 +360,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				184FE44D2A24AE4B00125C5C /* Datasource.m in Sources */,
 				184FE4392A2487CE00125C5C /* ViewController.m in Sources */,
+				184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */,
 				184FE4332A2487CE00125C5C /* AppDelegate.m in Sources */,
+				184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */,
 				184FE4442A2487CF00125C5C /* main.m in Sources */,
+				184FE4502A24B68300125C5C /* CustomCell.m in Sources */,
+				184FE44A2A24A9D300125C5C /* CellViewModel.m in Sources */,
 				184FE4362A2487CE00125C5C /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
