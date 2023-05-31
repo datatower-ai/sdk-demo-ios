@@ -44,8 +44,7 @@ class ViewController: UIViewController {
         let properties1 = ["product_name": "商品名"] as [String: Any]
         let properties2 = ["#product_name": "商品名"] as [String: Any]
         DTAnalytics.trackEventName("track_sample", properties: properties1);
-        DTAnalytics.trackEventName("track_sample_invalid", properties: properties2);
-        
+//        DTAnalytics.trackEventName("track_sample_invalid", properties: properties2);
     }
     
     func serverTime(time:Int64,msg:String){
