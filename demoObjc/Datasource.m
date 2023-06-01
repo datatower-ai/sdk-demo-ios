@@ -9,6 +9,8 @@
 #import "CellViewModel.h"
 #import "UserRelatedAPIController.h"
 #import "TrackEventViewController.h"
+#import <DataTowerAICore/DTAnalytics.h>
+
 
 CellViewModel *makeViewModel(NSString *a, NSString *b, onTapCell c) {
     CellViewModel *ret = [[CellViewModel alloc] initWith:a content:b tapAction:c];
@@ -23,6 +25,7 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 @interface Datasource ()
 
 //@property (nonatomic, readwrite) NSMutableArray *datas;
+@property (nonatomic) NSString *dtIdDesp;
 
 @end
 
@@ -39,7 +42,7 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 - (void)prepareData {
     
     self.items = @[
-        makeViewModel(@"Get DTID",@"DTID=",^{[self notify];}),
+        makeViewModel2(@"Get DTID",^{return self.dtIdDesp;},^{[self getDTID];}),
         makeViewModel2(@"Get DB items", ^{return [NSString stringWithFormat:@"DB Item Count=%d", [self dbCount]];}, ^{ [self notify];}),
         makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{}),
         makeViewModel(@"Track event",@"You'll have to fill in the name of the event and its properties",^{ [self openTrackEventViewController];}),
@@ -51,6 +54,14 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     if(self.action) {
         self.action();
     }
+}
+
+- (void)getDTID {
+    NSString *dtId = [DTAnalytics getDataTowerId];
+    self.dtIdDesp = [NSString stringWithFormat:@"DTID = %@", dtId];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self notify];
+    });
 }
 
 - (int)dbCount {
