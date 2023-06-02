@@ -251,7 +251,7 @@ const CGFloat leftX = 25;
 - (UIButton *)closeBtn {
     if (!_closeBtn) {
         _closeBtn = [[UIButton alloc] init];
-        [_closeBtn setImage:[UIImage imageNamed:@"closeBtn"] forState:UIControlStateNormal];
+        [_closeBtn setImage:[UIImage imageNamed:@"Res/closeBtn"] forState:UIControlStateNormal];
         _closeBtn.frame = CGRectMake(screenWidth - leftX - 30, leftX, 30, 30);
         [_closeBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
     }
