@@ -9,6 +9,12 @@
 #import <DataTowerAICore/DTAnalytics.h>
 #import <objc/runtime.h>
 
+const CGFloat leftX = 25;
+#define controlWidth  ([UIScreen mainScreen].bounds.size.width - leftX * 2)
+#define alignTop(topView, nextView, height)  nextView.frame = CGRectMake(leftX, CGRectGetMinY(topView.frame) + CGRectGetHeight(topView.frame) + 10, controlWidth, height);
+
+#define screenHeight [UIScreen mainScreen].bounds.size.height
+#define screenWidth [UIScreen mainScreen].bounds.size.width
 
 @interface MethoInfo : NSObject
 @property (nonatomic) NSString *name;
@@ -18,12 +24,16 @@
 @end
 
 @interface UserRelatedAPIController ()
-
+@property (nonatomic) UILabel *textFieldDesp;
 @property (nonatomic) UITextField *textField;
+@property (nonatomic) UILabel *paramFieldDesp;
 @property (nonatomic) UILabel *paramsDescription;
+@property (nonatomic) UILabel *inputFieldDesp;
 @property (nonatomic) UITextField *inputParsm;
 @property (nonatomic) UIPickerView *picker;
 @property (nonatomic) NSMutableArray<MethoInfo *> *pickerArray;
+@property (nonatomic) UIButton *confirmBtn;
+@property (nonatomic) UIButton *closeBtn;
 
 @end
 
@@ -32,29 +42,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+    [self setTitle:@"User Rellated API"];
     // Do any additional setup after loading the view.
     
-    UIButton *closeButton = [[UIButton alloc] init];
-    closeButton.backgroundColor = [UIColor yellowColor];
-    closeButton.frame = CGRectMake(50, 50, 30, 20);
-    [self.view addSubview:closeButton];
-    [closeButton addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
-    
-    CGFloat screenHeight = [UIScreen mainScreen].bounds.size.height;
-    CGFloat screenWidth = [UIScreen mainScreen].bounds.size.width;
-    
-    [self.view addSubview:self.textField];
     self.textField.inputView = self.picker;
     
-    UIButton *confirmBtn = [[UIButton alloc] init];
-    confirmBtn.frame = CGRectMake(0, screenHeight - 50 - 200, screenWidth, 50);
-    [confirmBtn setTitle:@"Run" forState:UIControlStateNormal];
-    confirmBtn.backgroundColor = [UIColor blueColor];
-    [confirmBtn addTarget:self action:@selector(invokeMethod:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:confirmBtn];
-    
+    [self.view addSubview:self.textField];
+    [self.view addSubview:self.confirmBtn];
     [self.view addSubview:self.paramsDescription];
     [self.view addSubview:self.inputParsm];
+    [self.view addSubview:self.textFieldDesp];
+    [self.view addSubview:self.paramFieldDesp];
+    [self.view addSubview:self.inputFieldDesp];
+    [self.view addSubview:self.closeBtn];
 }
 
 - (void)closeView {
@@ -120,13 +120,14 @@
 
 - (UITextField *)textField {
     if (!_textField) {
-        _textField = [[UITextField alloc] initWithFrame:
-            CGRectMake(10, 100, 300, 30)];
+        _textField = [[UITextField alloc] initWithFrame:CGRectZero];
+        
+        alignTop( self.textFieldDesp, _textField, 30);
         
         _textField.borderStyle = UITextBorderStyleRoundedRect;
         _textField.textAlignment = UITextAlignmentCenter;
         _textField.delegate = self;
-        
+        [_textField setTextColor:[UIColor blueColor]];
         [_textField setPlaceholder:@"Pick a Sport"];
         
         
@@ -189,9 +190,9 @@
 - (UILabel *)paramsDescription {
     if (!_paramsDescription) {
         _paramsDescription = [[UILabel alloc] init];
-        
-        CGRect rect = self.textField.frame;
-        _paramsDescription.frame = CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + CGRectGetHeight(rect) + 5, CGRectGetWidth(rect), 50);
+        _paramsDescription.backgroundColor = [UIColor lightGrayColor];
+
+        alignTop(self.paramFieldDesp, _paramsDescription, 50);
     }
     
     return _paramsDescription;
@@ -201,12 +202,60 @@
     if (!_inputParsm) {
         _inputParsm = [[UITextField alloc] init];
         
-        CGRect rect = self.paramsDescription.frame;
-        _inputParsm.frame = CGRectMake(CGRectGetMinX(rect), CGRectGetMinY(rect) + CGRectGetHeight(rect) + 5, CGRectGetWidth(rect), 100);
-        
+        alignTop(self.inputFieldDesp, _inputParsm, 200);
+
         _inputParsm.backgroundColor = [UIColor lightGrayColor];
     }
     return _inputParsm;
+}
+
+- (UILabel *)textFieldDesp {
+    if (!_textFieldDesp) {
+        _textFieldDesp = [[UILabel alloc] init];
+        _textFieldDesp.frame = CGRectMake(leftX, 50, controlWidth, 20);
+        _textFieldDesp.text = @"Select API to invoke:";
+    }
+    return _textFieldDesp;
+}
+
+- (UILabel *)paramFieldDesp {
+    if (!_paramFieldDesp) {
+        _paramFieldDesp = [[UILabel alloc] init];
+        _paramFieldDesp.text = @"The param format is";
+        alignTop(self.textField, _paramFieldDesp, 20);
+    }
+    return _paramFieldDesp;
+}
+
+- (UILabel *)inputFieldDesp {
+    if (!_inputFieldDesp) {
+        _inputFieldDesp = [[UILabel alloc] init];
+        alignTop(self.paramsDescription, _inputFieldDesp, 20);
+        _inputFieldDesp.text = @"Input param with json format:";
+    }
+    return _inputFieldDesp;
+}
+
+- (UIButton *)confirmBtn {
+    if (!_confirmBtn) {
+        _confirmBtn = [[UIButton alloc] init];
+        _confirmBtn.frame = CGRectMake(leftX, screenHeight - 50 - 200, controlWidth, 50);
+        _confirmBtn.layer.cornerRadius = 10;
+        [_confirmBtn setTitle:@"Invoke" forState:UIControlStateNormal];
+        _confirmBtn.backgroundColor = [UIColor blueColor];
+        [_confirmBtn addTarget:self action:@selector(invokeMethod:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _confirmBtn;
+}
+
+- (UIButton *)closeBtn {
+    if (!_closeBtn) {
+        _closeBtn = [[UIButton alloc] init];
+        [_closeBtn setImage:[UIImage imageNamed:@"closeBtn"] forState:UIControlStateNormal];
+        _closeBtn.frame = CGRectMake(screenWidth - leftX - 30, leftX, 30, 30);
+        [_closeBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _closeBtn;
 }
 
 @end
