@@ -3,83 +3,60 @@
 #import "DTAnalytics.h"
 #import <OSLog/OSLog.h>
 
-@interface DTAnalRepetitiveTrackingThread () {
-    NSString * _Nonnull _eventName;
-    NSString * _Nullable _propertiesAsText;
-    NSDictionary * _Nullable _propertiesAsDict;
-    uint32_t _repeatTimes;
-    uint32_t _intervalMillis;
-    uint32_t _currentTimeOfRepeat;
-}
+@interface DTAnalRepetitiveTrackingThread ()
+
+@property (nonatomic) uint32_t intervalMillis;
+@property (nonatomic) uint32_t repeatTimes;
+@property (nonatomic) NSString *eventName;
+@property (nonatomic) NSString *propertiesAsText;
+@property (nonatomic) NSDictionary *propertiesAsDict;
+@property (nonatomic) uint32_t currentTimeOfRepeat;
+
 @end
 
 @implementation DTAnalRepetitiveTrackingThread
 
-- (instancetype)init {
-    return nil;
+static DTAnalRepetitiveTrackingThread *_instance = nil;
+
++ (DTAnalRepetitiveTrackingThread *)shareInstance {
+    static dispatch_once_t oneToken;
+    dispatch_once(&oneToken, ^{
+        _instance = [[DTAnalRepetitiveTrackingThread alloc] init];
+    });
+    return _instance;
 }
 
-- (instancetype)initWithParams:(id)ignored
-    eventName:(NSString * _Nonnull)eventName
-    propertiesAsText:(NSString * _Nullable)propertiesAsText
-    repeatTimes:(uint32_t)repeatTimes
-    intervalMillis:(uint32_t)intervalMillis {
-
-    self = [super init];
-    if (!self) return self;
-
-    if (eventName == nil) return nil;
+- (void)start:(NSString *)eventName propertiesAsText:(NSString * _Nullable)propertiesAsText repeatTimes:(uint32_t)repeatTimes intervalMillis:(uint32_t)intervalMillis; {
+    
+    if (eventName == nil) return;
     _eventName = eventName;
     _propertiesAsText = propertiesAsText;
     _repeatTimes = repeatTimes;
     _intervalMillis = intervalMillis;
     _currentTimeOfRepeat = 0;
     _errorOut = nil;
-
-    return self;
+    
+    [self runTaskLoop];
 }
 
-- (void)main {
-    NSError * _Nullable errOut = nil;
-    __auto_type const propertiesAsUtf8NSData = [_propertiesAsText dataUsingEncoding:NSUTF8StringEncoding];
-    id const properties = [NSJSONSerialization JSONObjectWithData:propertiesAsUtf8NSData options:0 error:&errOut];
-    if (errOut != nil) {
-        _errorOut = errOut;
-        return;
+- (void)runTaskLoop {
+    if (!self.isStop && self.repeatTimes > self.currentTimeOfRepeat) {
+        [self doEventTrack];
+        self.currentTimeOfRepeat++;
+        
+        __weak typeof(self) weakSelf = self;
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.intervalMillis * NSEC_PER_SEC / 1000), dispatch_get_main_queue(), ^{
+            [weakSelf runTaskLoop];
+        });
     }
-    if (![properties isKindOfClass:NSDictionary.class]) {
-        _errorOut = [NSError errorWithDomain:@"properties isn't a json object." code:-1 userInfo:nil];
-        return;
-    }
-    _propertiesAsDict = properties;
-
-    __auto_type const runLoop = [NSRunLoop currentRunLoop];
-    os_log(OS_LOG_DEFAULT, "before [runLoop performSelector:withObject:]");
-    [self performSelector:@selector(invokeTrackEvent) withObject:self];
-    os_log(OS_LOG_DEFAULT, "before [runLoop run]");
-    [runLoop run];
 }
 
-- (void)invokeTrackEvent {
-    os_log(OS_LOG_DEFAULT, "in [DTARTT invokeTrackEvent]");
-    __auto_type const runLoop = [NSRunLoop currentRunLoop];
-    if (_currentTimeOfRepeat >= _repeatTimes) {
-        CFRunLoopStop([runLoop getCFRunLoop]);
-        return;
-    }
-    _currentTimeOfRepeat++;
-
-    if (_propertiesAsDict != nil) {
-        [DTAnalytics trackEventName:_eventName properties:_propertiesAsDict];
+- (void)doEventTrack {
+    if (self.propertiesAsDict != nil) {
+        [DTAnalytics trackEventName:self.eventName properties:self.propertiesAsDict];
     } else {
-        [DTAnalytics trackEventName:_eventName];
+        [DTAnalytics trackEventName:self.eventName];
     }
-    [self performSelector:@selector(invokeTrackEvent) withObject:self afterDelay:_intervalMillis * 0.001];
-}
-
-@end
-
-@interface DTAnalTrackEventRepeatedOperation : NSOperation {
 }
 
 @end

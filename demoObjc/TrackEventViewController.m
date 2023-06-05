@@ -7,6 +7,7 @@
 
 #import "TrackEventViewController.h"
 #import <Masonry/Masonry.h>
+#import "DTAnalRepetitiveTrackingThread.h"
 
 #define screenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -122,7 +123,12 @@
 }
 
 - (void)run:(id)sender {
+    NSString *eventName = self.inputTrackName.text;
+    NSString *properties = self.inputProperties.text;
+    NSString *repeat = self.inputRepeates.text;
+    NSString *interval = self.inputInterval.text;
     
+    [[DTAnalRepetitiveTrackingThread shareInstance] start:eventName propertiesAsText:properties repeatTimes:[repeat intValue] intervalMillis:[interval intValue]];
 }
 
 #pragma Getter

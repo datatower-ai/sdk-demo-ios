@@ -20,6 +20,7 @@
 		184FE4502A24B68300125C5C /* CustomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE44F2A24B68300125C5C /* CustomCell.m */; };
 		184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4522A24BFFD00125C5C /* TrackEventViewController.m */; };
 		184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4552A24C01400125C5C /* UserRelatedAPIController.m */; };
+		185564AD2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 185564AC2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m */; };
 		18FB33BA2A29DB3F00A1D1F6 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = 18FB33B92A29DB3F00A1D1F6 /* Res */; };
 		5B562469CDA48B8B0AA5D72C /* Pods_demoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CF4F88ED2DE6E9DBB6CEC4 /* Pods_demoObjc.framework */; };
 		B56B6CB229476FE500F96D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6CB129476FE500F96D8D /* AppDelegate.swift */; };
@@ -54,6 +55,8 @@
 		184FE4522A24BFFD00125C5C /* TrackEventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TrackEventViewController.m; sourceTree = "<group>"; };
 		184FE4542A24C01400125C5C /* UserRelatedAPIController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserRelatedAPIController.h; sourceTree = "<group>"; };
 		184FE4552A24C01400125C5C /* UserRelatedAPIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserRelatedAPIController.m; sourceTree = "<group>"; };
+		185564AB2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAnalRepetitiveTrackingThread.h; sourceTree = "<group>"; };
+		185564AC2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAnalRepetitiveTrackingThread.m; sourceTree = "<group>"; };
 		18FB33B92A29DB3F00A1D1F6 /* Res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Res; sourceTree = "<group>"; };
 		59CF4F88ED2DE6E9DBB6CEC4 /* Pods_demoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A590EB531F7B4DA65FA2BE /* Pods-demoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoObjc.debug.xcconfig"; path = "Target Support Files/Pods-demoObjc/Pods-demoObjc.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +119,8 @@
 				184FE43F2A2487CF00125C5C /* LaunchScreen.storyboard */,
 				184FE4422A2487CF00125C5C /* Info.plist */,
 				184FE4432A2487CF00125C5C /* main.m */,
+				185564AB2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.h */,
+				185564AC2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m */,
 				184FE4482A24A9D300125C5C /* CellViewModel.h */,
 				184FE4492A24A9D300125C5C /* CellViewModel.m */,
 				184FE44B2A24AE4B00125C5C /* Datasource.h */,
@@ -372,6 +377,7 @@
 				184FE4442A2487CF00125C5C /* main.m in Sources */,
 				184FE4502A24B68300125C5C /* CustomCell.m in Sources */,
 				184FE44A2A24A9D300125C5C /* CellViewModel.m in Sources */,
+				185564AD2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m in Sources */,
 				184FE4362A2487CE00125C5C /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
