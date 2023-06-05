@@ -19,6 +19,7 @@ target 'demoObjc' do
   $SDKLocalPath="./submodules/DataTowerAICore"
   pod "DataTowerAICore" ,:path => $SDKLocalPath
   pod "Masonry"
+  pod 'QMUIKit'
 end
 
 

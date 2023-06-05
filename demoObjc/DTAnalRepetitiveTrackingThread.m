@@ -2,6 +2,7 @@
 
 #import "DTAnalytics.h"
 #import <OSLog/OSLog.h>
+#import <QMUIKit/QMUITips.h>
 
 @interface DTAnalRepetitiveTrackingThread ()
 
@@ -43,6 +44,8 @@ static DTAnalRepetitiveTrackingThread *_instance = nil;
     if (!self.isStop && self.repeatTimes > self.currentTimeOfRepeat) {
         [self doEventTrack];
         self.currentTimeOfRepeat++;
+        
+        [QMUITips showInfo:[NSString stringWithFormat:@"运行%d/%d", self.currentTimeOfRepeat, self.repeatTimes] inView:[UIApplication sharedApplication].keyWindow];
         
         __weak typeof(self) weakSelf = self;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, self.intervalMillis * NSEC_PER_SEC / 1000), dispatch_get_main_queue(), ^{
