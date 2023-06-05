@@ -18,7 +18,7 @@ target 'demoObjc' do
   # Pods for demo
   $SDKLocalPath="./submodules/DataTowerAICore"
   pod "DataTowerAICore" ,:path => $SDKLocalPath
-
+  pod "Masonry"
 end
 
 
