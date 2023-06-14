@@ -76,10 +76,6 @@
     }
     
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO animated:YES];
-    
-#ifdef DEBUG
-    [QMUITips showInfo:@"DEBUG" inView:[UIApplication sharedApplication].keyWindow];
-#endif
 }
 
 #pragma Getter
