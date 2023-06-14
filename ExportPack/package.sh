@@ -64,7 +64,7 @@ ARCHIVE_PATH=${PRODUCT_PATH}/IPA/${IPA_DIR_NAME}/${SCHEME_NAME}.xcarchive
 IPA_PATH=${PRODUCT_PATH}/IPA/${IPA_DIR_NAME}
 
 # 解锁钥匙串 -p后跟为电脑密码
-security unlock-keychain -p XXX
+# security unlock-keychain -p XXX
 
 echo "============Build Archive Begin============"
 ## 导出archive包
@@ -102,18 +102,18 @@ fi
 # xcrun altool --upload-app -f ${IPA_PATH}/${SCHEME_NAME}.ipa -t ios --apiKey xxx --apiIssuer xxx --verbose
 
 ## 上传到蒲公英
-echo "============Upload PGYER Begin============"
+# echo "============Upload PGYER Begin============"
 
-## 具体参数可见 http://www.pgyer.com/doc/view/api#uploadApp
-PGYER_UPLOAD_RESULT=$(curl \
-    -F "file=@${IPA_PATH}/${SCHEME_NAME}.ipa" \
-    -F "buildInstallType=XXX" \
-    -F "buildPassword=XXX" \
-    -F "buildUpdateDescription=XXX" \
-    -F "_api_key=XXX" \
-    https://www.pgyer.com/apiv2/app/upload)
+# ## 具体参数可见 http://www.pgyer.com/doc/view/api#uploadApp
+# PGYER_UPLOAD_RESULT=$(curl \
+#     -F "file=@${IPA_PATH}/${SCHEME_NAME}.ipa" \
+#     -F "buildInstallType=XXX" \
+#     -F "buildPassword=XXX" \
+#     -F "buildUpdateDescription=XXX" \
+#     -F "_api_key=XXX" \
+#     https://www.pgyer.com/apiv2/app/upload)
 
-echo "============Upload PGYER SUCCESS============"
+# echo "============Upload PGYER SUCCESS============"
 ## 返回结果码，其中0为成功上传，因为返回结果中带回来的有中文显示乱码，无法利用jq解析
 
 ## 如需上传到fim，可查阅 https://www.betaqr.com/docs/publish 文档
