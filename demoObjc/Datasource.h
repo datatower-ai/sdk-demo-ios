@@ -16,6 +16,9 @@ typedef void(^didLoadData)(void);
 @property (nonatomic) didLoadData action;
 @property (nonatomic) NSArray *items;
 
++ (NSString *)serverUrl;
++ (NSString *)appId;
+
 @end
 
 NS_ASSUME_NONNULL_END

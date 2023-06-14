@@ -10,6 +10,7 @@
 #import "Datasource.h"
 #import "CellViewModel.h"
 #import "CustomCell.h"
+#import <QMUIKit/QMUITips.h>
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -75,6 +76,10 @@
     }
     
     [[tableView cellForRowAtIndexPath:indexPath] setSelected:NO animated:YES];
+    
+#ifdef DEBUG
+    [QMUITips showInfo:@"DEBUG" inView:[UIApplication sharedApplication].keyWindow];
+#endif
 }
 
 #pragma Getter

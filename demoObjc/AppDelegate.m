@@ -7,6 +7,7 @@
 
 #import "AppDelegate.h"
 #import <DataTowerAICore/DT.h>
+#import "Datasource.h"
 
 @interface AppDelegate ()
 
@@ -16,14 +17,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    NSString *appid = @"dt_461a208fdd075c27";
-    NSString *serverUrl = @"https://report-inner.roiquery.com";
-//        let serverUrl = "https://test.roiquery.com"
-//        let serverUrl = "https://report.roiquery.com"
     DTChannel channel  = DTChannelAppStore;
     DTLoggingLevel logLevel  = DTLoggingLevelDebug;
-    [DT initSDK:appid serverUrl:serverUrl channel:channel isDebug:YES logLevel:logLevel];
+    [DT initSDK:[Datasource appId] serverUrl:[Datasource serverUrl] channel:channel isDebug:YES logLevel:logLevel];
     return YES;
 }
 

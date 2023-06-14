@@ -31,6 +31,23 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 @implementation Datasource
 
++ (NSString *)serverUrl {
+//    NSString *serverUrl = @"https://report-inner.roiquery.com";
+    static NSString *serverUrl = @"https://test.roiquery.com";
+//        NSString * serverUrl = @"https://report.roiquery.com";
+    
+    return serverUrl;
+}
+
++ (NSString *)appId {
+    
+// Override point for customization after application launch.
+    static NSString *appid = @"dt_461a208fdd075c27";
+//    NSString *appid = @"dt_beb231f90a5a20ba";
+
+    return appid;
+}
+
 - (instancetype)init {
     if(self = [super init]) {
         [self prepareData];
@@ -42,6 +59,10 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 - (void)prepareData {
     
     self.items = @[
+     
+        makeViewModel2(@"isDebug",^{return [NSString stringWithFormat:@"%@", [self isDebug]];},^{}),
+        makeViewModel(@"AppId", [self.class appId], nil),
+        makeViewModel(@"ServerUrl", [self.class serverUrl], nil),
         makeViewModel2(@"Get DTID",^{return self.dtIdDesp;},^{[self getDTID];}),
         makeViewModel2(@"Get DB items", ^{return [NSString stringWithFormat:@"DB Item Count=%d", [self dbCount]];}, ^{ [self notify];}),
         makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{}),
@@ -54,6 +75,13 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     if(self.action) {
         self.action();
     }
+}
+
+- (NSString *)isDebug {
+#ifdef DEBUG
+    return @"1";
+#endif
+    return @"0";
 }
 
 - (void)getDTID {
