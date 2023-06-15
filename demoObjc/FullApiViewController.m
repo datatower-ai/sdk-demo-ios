@@ -15,7 +15,7 @@
 #import <objc/runtime.h>
 
 const CGFloat startX = 25;
-const NSString *star = @"******************************************";
+const NSString *star = @"*********************";
 #define controlWidth  ([UIScreen mainScreen].bounds.size.width - leftX * 2)
 #define alignTop(topView, nextView, height)  nextView.frame = CGRectMake(leftX, CGRectGetMinY(topView.frame) + CGRectGetHeight(topView.frame) + 10, controlWidth, height);
 
@@ -25,8 +25,9 @@ const NSString *star = @"******************************************";
 @interface FullApiViewController ()
 
 @property (nonatomic) UIButton *closeBtn;
-@property (nonatomic) UILabel *apiLabel;
+@property (nonatomic) UITextView *apiTextview;
 @property (nonatomic) UIScrollView *contentView;
+@property (nonatomic) UIButton *copyBtn;
 
 @end
 
@@ -37,14 +38,22 @@ const NSString *star = @"******************************************";
     
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.contentView];
-    [self.contentView addSubview:self.apiLabel];
+    [self.contentView addSubview:self.apiTextview];
     [self.view addSubview:self.closeBtn];
+    [self.view addSubview:self.copyBtn];
 
+    [self.copyBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.right.equalTo(self.closeBtn.mas_left).with.offset(-20);
+        make.centerY.equalTo(self.closeBtn.mas_centerY);
+        make.height.mas_equalTo(30);
+    }];
+    
     [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(10);
         make.right.equalTo(self.view.mas_right).with.offset(-10);
-        make.top.equalTo(self.view.mas_top).with.offset(20);
-        make.bottom.equalTo(self.view.mas_bottom);
+        make.top.equalTo(self.copyBtn.mas_bottom).with.offset(10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
     }];
     
     [self loadApi];
@@ -52,6 +61,12 @@ const NSString *star = @"******************************************";
 
 - (void)closeView {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)copyApi {
+    NSString *fullApi = self.apiTextview.text;
+    UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+    pasteboard.string = fullApi;
 }
 
 - (void)loadApi {
@@ -108,9 +123,9 @@ const NSString *star = @"******************************************";
         formatStr = [NSString stringWithFormat:@"%@\n%@\n", formatStr, api];
     }
     
-    self.apiLabel.text = formatStr;
-    [self.apiLabel sizeToFit];
-    self.contentView.contentSize = self.apiLabel.bounds.size;
+    self.apiTextview.text = formatStr;
+    [self.apiTextview sizeToFit];
+    self.contentView.contentSize = self.apiTextview.bounds.size;
 }
 
 - (NSArray<NSString *> *)filterApi:(NSString *)apiPrefix fromList:(NSMutableArray *)sourceAry {
@@ -180,12 +195,12 @@ const NSString *star = @"******************************************";
     return _closeBtn;
 }
 
-- (UILabel *)apiLabel {
-    if (!_apiLabel) {
-        _apiLabel = [[UILabel alloc] init];
-        _apiLabel.numberOfLines = 0;
+- (UITextView *)apiTextview {
+    if (!_apiTextview) {
+        _apiTextview = [[UITextView alloc] init];
+        _apiTextview.editable = NO;
     }
-    return _apiLabel;
+    return _apiTextview;
 }
 
 - (UIScrollView *)contentView {
@@ -193,6 +208,17 @@ const NSString *star = @"******************************************";
         _contentView = [[UIScrollView alloc] init];
     }
     return _contentView;
+}
+
+- (UIButton *)copyBtn {
+    if (!_copyBtn) {
+        _copyBtn = [[UIButton alloc] init];
+        _copyBtn.backgroundColor = [UIColor blueColor];
+        _copyBtn.layer.cornerRadius = 5;
+        [_copyBtn setTitle:@"Copy All" forState:UIControlStateNormal];
+        [_copyBtn addTarget:self action:@selector(copyApi) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _copyBtn;
 }
 
 @end
