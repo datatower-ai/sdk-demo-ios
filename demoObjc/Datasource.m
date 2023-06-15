@@ -10,6 +10,7 @@
 #import "UserRelatedAPIController.h"
 #import "TrackEventViewController.h"
 #import <DataTowerAICore/DTAnalytics.h>
+#import "FullApiViewController.h"
 
 
 CellViewModel *makeViewModel(NSString *a, NSString *b, onTapCell c) {
@@ -68,6 +69,7 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
         makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{}),
         makeViewModel(@"Track event",@"You'll have to fill in the name of the event and its properties",^{ [self openTrackEventViewController];}),
         makeViewModel(@"User related API",@"You'll have to fill in the name of the user api and its params",^{ [self openUserRelatedAPIController];}),
+        makeViewModel(@"SDK Full API",@"check all api",^{ [self openFullApiPage];}),
     ];
 }
 
@@ -103,6 +105,11 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 - (void)openUserRelatedAPIController {
     UserRelatedAPIController *vc = [[UserRelatedAPIController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)openFullApiPage {
+    FullApiViewController *vc = [[FullApiViewController alloc] init];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
 }
                       

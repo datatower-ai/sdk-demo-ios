@@ -21,6 +21,7 @@
 		184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4522A24BFFD00125C5C /* TrackEventViewController.m */; };
 		184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4552A24C01400125C5C /* UserRelatedAPIController.m */; };
 		185564AD2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 185564AC2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m */; };
+		18DF41302A3ABEAD005EE094 /* FullApiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DF412F2A3ABEAD005EE094 /* FullApiViewController.m */; };
 		18FB33BA2A29DB3F00A1D1F6 /* Res in Resources */ = {isa = PBXBuildFile; fileRef = 18FB33B92A29DB3F00A1D1F6 /* Res */; };
 		5B562469CDA48B8B0AA5D72C /* Pods_demoObjc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59CF4F88ED2DE6E9DBB6CEC4 /* Pods_demoObjc.framework */; };
 		B56B6CB229476FE500F96D8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56B6CB129476FE500F96D8D /* AppDelegate.swift */; };
@@ -57,6 +58,8 @@
 		184FE4552A24C01400125C5C /* UserRelatedAPIController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserRelatedAPIController.m; sourceTree = "<group>"; };
 		185564AB2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTAnalRepetitiveTrackingThread.h; sourceTree = "<group>"; };
 		185564AC2A2DDCEB006C3049 /* DTAnalRepetitiveTrackingThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTAnalRepetitiveTrackingThread.m; sourceTree = "<group>"; };
+		18DF412E2A3ABEAD005EE094 /* FullApiViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FullApiViewController.h; sourceTree = "<group>"; };
+		18DF412F2A3ABEAD005EE094 /* FullApiViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FullApiViewController.m; sourceTree = "<group>"; };
 		18FB33B92A29DB3F00A1D1F6 /* Res */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Res; sourceTree = "<group>"; };
 		59CF4F88ED2DE6E9DBB6CEC4 /* Pods_demoObjc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_demoObjc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67A590EB531F7B4DA65FA2BE /* Pods-demoObjc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demoObjc.debug.xcconfig"; path = "Target Support Files/Pods-demoObjc/Pods-demoObjc.debug.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +134,8 @@
 				184FE4522A24BFFD00125C5C /* TrackEventViewController.m */,
 				184FE4542A24C01400125C5C /* UserRelatedAPIController.h */,
 				184FE4552A24C01400125C5C /* UserRelatedAPIController.m */,
+				18DF412E2A3ABEAD005EE094 /* FullApiViewController.h */,
+				18DF412F2A3ABEAD005EE094 /* FullApiViewController.m */,
 			);
 			path = demoObjc;
 			sourceTree = "<group>";
@@ -211,7 +216,7 @@
 				B56B6CAA29476FE500F96D8D /* Sources */,
 				B56B6CAB29476FE500F96D8D /* Frameworks */,
 				B56B6CAC29476FE500F96D8D /* Resources */,
-				BAFB5B847A927C6374B1C0CC /* [CP] Embed Pods Frameworks */,
+				A8F0E1FD46CA10B961A6EFBE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +328,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demoObjc/Pods-demoObjc-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A8F0E1FD46CA10B961A6EFBE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B1C48772E81D7F5A7143098B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,23 +367,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BAFB5B847A927C6374B1C0CC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-demo/Pods-demo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -372,6 +377,7 @@
 				184FE44D2A24AE4B00125C5C /* Datasource.m in Sources */,
 				184FE4392A2487CE00125C5C /* ViewController.m in Sources */,
 				184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */,
+				18DF41302A3ABEAD005EE094 /* FullApiViewController.m in Sources */,
 				184FE4332A2487CE00125C5C /* AppDelegate.m in Sources */,
 				184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */,
 				184FE4442A2487CF00125C5C /* main.m in Sources */,
@@ -438,11 +444,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7UW9N9QSQ6;
+				DEVELOPMENT_TEAM = ERCC2N3YJQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demoObjc/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -456,10 +460,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk.linli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SDKDemoAdHoc;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -619,9 +622,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = ERCC2N3YJQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -635,7 +639,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk;
+				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk.linli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
