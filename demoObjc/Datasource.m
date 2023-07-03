@@ -12,7 +12,6 @@
 #import <DataTowerAICore/DTAnalytics.h>
 #import "FullApiViewController.h"
 
-
 CellViewModel *makeViewModel(NSString *a, NSString *b, onTapCell c) {
     CellViewModel *ret = [[CellViewModel alloc] initWith:a content:b tapAction:c];
     return ret;
@@ -43,10 +42,14 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 + (NSString *)appId {
     
 // Override point for customization after application launch.
-    static NSString *appid = @"dt_461a208fdd075c27";
+    static NSString *appid = @"dt_3549d49b8ae2f55b";
 //    NSString *appid = @"dt_beb231f90a5a20ba";
 
     return appid;
+}
+
++ (BOOL)isDebug {
+    return NO;
 }
 
 - (instancetype)init {
@@ -61,12 +64,12 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     
     self.items = @[
      
-        makeViewModel2(@"isDebug",^{return [NSString stringWithFormat:@"%@", [self isDebug]];},^{}),
+        makeViewModel2(@"isDebug",^{return [NSString stringWithFormat:@"%d", [self.class isDebug]];},^{}),
         makeViewModel(@"AppId", [self.class appId], nil),
         makeViewModel(@"ServerUrl", [self.class serverUrl], nil),
         makeViewModel2(@"Get DTID",^{return self.dtIdDesp;},^{[self getDTID];}),
         makeViewModel2(@"Get DB items", ^{return [NSString stringWithFormat:@"DB Item Count=%d", [self dbCount]];}, ^{ [self notify];}),
-        makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{}),
+        makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{[self trackSimpleEvent];}),
         makeViewModel(@"Track event",@"You'll have to fill in the name of the event and its properties",^{ [self openTrackEventViewController];}),
         makeViewModel(@"User related API",@"You'll have to fill in the name of the user api and its params",^{ [self openUserRelatedAPIController];}),
         makeViewModel(@"SDK Full API",@"check all api",^{ [self openFullApiPage];}),
@@ -79,13 +82,6 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     }
 }
 
-- (NSString *)isDebug {
-#ifdef DEBUG
-    return @"1";
-#endif
-    return @"0";
-}
-
 - (void)getDTID {
     NSString *dtId = [DTAnalytics getDataTowerId];
     self.dtIdDesp = [NSString stringWithFormat:@"DTID = %@", dtId];
@@ -94,8 +90,30 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     });
 }
 
-- (int)dbCount {
-    return 0;
+- (NSInteger)dbCount {
+    NSInteger ret = 0;
+    Class cls = NSClassFromString(@"DTDBManager");
+    SEL selector = NSSelectorFromString(@"sharedInstance");
+    NSObject *instance = [cls performSelector:selector];
+    selector = NSSelectorFromString(@"queryEventCount");
+
+    if ([instance respondsToSelector:selector]) {
+        
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
+                                    [cls instanceMethodSignatureForSelector:selector]];
+        [invocation setSelector:selector];
+        [invocation setTarget:instance];
+        [invocation invoke];
+        [invocation getReturnValue:&ret];
+    }
+    return ret;
+}
+
+- (void)trackSimpleEvent {    
+    NSDictionary *properties1 = @{
+        @"product_name":@"商品名",
+    };
+    [DTAnalytics trackEventName:@"dt_track_simple" properties:properties1];
 }
 
 - (void)openTrackEventViewController {

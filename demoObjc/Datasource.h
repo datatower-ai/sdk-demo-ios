@@ -18,6 +18,7 @@ typedef void(^didLoadData)(void);
 
 + (NSString *)serverUrl;
 + (NSString *)appId;
++ (BOOL)isDebug;
 
 @end
 

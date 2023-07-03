@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     DTChannel channel  = DTChannelAppStore;
     DTLoggingLevel logLevel  = DTLoggingLevelDebug;
-    [DT initSDK:[Datasource appId] serverUrl:[Datasource serverUrl] channel:channel isDebug:YES logLevel:logLevel];
+    [DT initSDK:[Datasource appId] serverUrl:[Datasource serverUrl] channel:channel isDebug:[Datasource isDebug] logLevel:logLevel];
     return YES;
 }
 

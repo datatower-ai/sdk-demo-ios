@@ -29,6 +29,8 @@
 
 @property (nonatomic) UIButton *confirmBtn;
 
+@property (nonatomic) UIView *cancelInputView;
+
 @end
 
 @implementation TrackEventViewController
@@ -37,6 +39,14 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.cancelInputView];
+    [self.cancelInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left);
+            make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.view.mas_top);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
     
     [self.view addSubview:self.closeBtn];
     [self.closeBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -131,6 +141,10 @@
     [[DTAnalRepetitiveTrackingThread shareInstance] start:eventName propertiesAsText:properties repeatTimes:[repeat intValue] intervalMillis:[interval intValue]];
 }
 
+- (void)hideKeyboard:(id)sender {
+    [self.view endEditing:YES];
+}
+
 #pragma Getter
 
 - (UIButton *)closeBtn {
@@ -216,6 +230,18 @@
         [_confirmBtn addTarget:self action:@selector(run:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _confirmBtn;
+}
+
+- (UIView *)cancelInputView {
+    if (!_cancelInputView) {
+        _cancelInputView = [[UIView alloc] init];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+        
+        [_cancelInputView addGestureRecognizer:tap];
+    }
+    
+    return _cancelInputView;
 }
 
 @end
