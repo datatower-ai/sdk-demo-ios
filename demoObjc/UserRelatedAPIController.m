@@ -8,6 +8,7 @@
 #import "UserRelatedAPIController.h"
 #import <DataTowerAICore/DTAnalytics.h>
 #import <objc/runtime.h>
+#import <Masonry/Masonry.h>
 
 const CGFloat leftX = 25;
 #define controlWidth  ([UIScreen mainScreen].bounds.size.width - leftX * 2)
@@ -34,6 +35,7 @@ const CGFloat leftX = 25;
 @property (nonatomic) NSMutableArray<MethoInfo *> *pickerArray;
 @property (nonatomic) UIButton *confirmBtn;
 @property (nonatomic) UIButton *closeBtn;
+@property (nonatomic) UIView *cancelInputView;
 
 @end
 
@@ -44,6 +46,14 @@ const CGFloat leftX = 25;
     self.view.backgroundColor = [UIColor whiteColor];
     [self setTitle:@"User Rellated API"];
     // Do any additional setup after loading the view.
+    
+    [self.view addSubview:self.cancelInputView];
+    [self.cancelInputView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.view.mas_left);
+            make.right.equalTo(self.view.mas_right);
+        make.top.equalTo(self.view.mas_top);
+        make.bottom.equalTo(self.view.mas_bottom);
+    }];
     
     self.textField.inputView = self.picker;
     
@@ -86,6 +96,10 @@ const CGFloat leftX = 25;
 
 - (void)done:(id)sender {
     [self.textField endEditing:YES];
+}
+
+- (void)hideKeyboard:(id)sender {
+    [self.view endEditing:YES];
 }
 
 #pragma mark - Text field delegates
@@ -256,6 +270,18 @@ const CGFloat leftX = 25;
         [_closeBtn addTarget:self action:@selector(closeView) forControlEvents:UIControlEventTouchUpInside];
     }
     return _closeBtn;
+}
+
+- (UIView *)cancelInputView {
+    if (!_cancelInputView) {
+        _cancelInputView = [[UIView alloc] init];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyboard:)];
+        
+        [_cancelInputView addGestureRecognizer:tap];
+    }
+    
+    return _cancelInputView;
 }
 
 @end
