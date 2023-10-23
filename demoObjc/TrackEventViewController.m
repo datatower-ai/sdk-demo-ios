@@ -86,6 +86,7 @@
         make.top.equalTo(self.properties.mas_bottom).with.offset(0);
         make.height.mas_equalTo(100);
     }];
+    self.inputProperties.text = @"{\"intKey\": 123,\"strKey\": \"123\"}";
     
     [self.view addSubview:self.repeates];
     [self.repeates mas_makeConstraints:^(MASConstraintMaker *make) {

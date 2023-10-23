@@ -7,6 +7,7 @@
 
 #import "UserRelatedAPIController.h"
 #import <DataTowerAICore/DTAnalytics.h>
+#import <DataTowerAICore/DTAdReport.h>
 #import <objc/runtime.h>
 #import <Masonry/Masonry.h>
 

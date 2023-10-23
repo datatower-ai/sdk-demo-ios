@@ -65,11 +65,10 @@ class UserSetPropertiesViewConTroller: UIViewController {
     
     
     @IBAction func userAppend(_ sender: Any) {
-        let course = ["History"]
+        let course = ["History","Now"]
         let userAppendProperties = ["course":course]
         DTAnalytics.userAppend(userAppendProperties)
         showProperties(properties: userAppendProperties)
-        
     }
     
     func showProperties(properties:[String:Any])  {

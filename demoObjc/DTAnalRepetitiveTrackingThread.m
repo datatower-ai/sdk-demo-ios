@@ -50,11 +50,13 @@ static DTAnalRepetitiveTrackingThread *_instance = nil;
             [QMUITips showInfo:@"Json字符串格式错我" inView:[UIApplication sharedApplication].keyWindow].userInteractionEnabled = NO;
             return;
         }
+        
+        self.propertiesAsDict = jsonDict;
     }
     
     _eventName = eventName;
     _propertiesAsText = propertiesAsText;
-    _repeatTimes = repeatTimes;
+    _repeatTimes = MAX(1,repeatTimes);
     _intervalMillis = intervalMillis;
     _currentTimeOfRepeat = 0;
     _errorOut = nil;

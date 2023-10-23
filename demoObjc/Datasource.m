@@ -49,7 +49,8 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 }
 
 + (BOOL)isDebug {
-    return NO;
+//    return NO;
+    return YES;
 }
 
 - (instancetype)init {
@@ -92,20 +93,16 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 - (NSInteger)dbCount {
     NSInteger ret = 0;
-    Class cls = NSClassFromString(@"DTDBManager");
-    SEL selector = NSSelectorFromString(@"sharedInstance");
-    NSObject *instance = [cls performSelector:selector];
-    selector = NSSelectorFromString(@"queryEventCount");
+    Class cls = NSClassFromString(@"DTEventTracker");
+    SEL selector = NSSelectorFromString(@"getDBCount");
 
-    if ([instance respondsToSelector:selector]) {
-        
-        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
-                                    [cls instanceMethodSignatureForSelector:selector]];
-        [invocation setSelector:selector];
-        [invocation setTarget:instance];
-        [invocation invoke];
-        [invocation getReturnValue:&ret];
-    }
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:
+                                [cls methodSignatureForSelector:selector]];
+    [invocation setSelector:selector];
+    [invocation setTarget:cls];
+    [invocation invoke];
+    [invocation getReturnValue:&ret];
+    
     return ret;
 }
 
