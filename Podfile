@@ -22,6 +22,7 @@ target 'demoObjc' do
   pod "DataTowerAICore" ,:path => $SDKLocalPath
   pod "Masonry"
   pod 'QMUIKit'
+#  pod 'ThinkingSDK'  #ThinkingSDK
 end
 
 

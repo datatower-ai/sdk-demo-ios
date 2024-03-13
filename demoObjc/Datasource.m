@@ -33,8 +33,11 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 + (NSString *)serverUrl {
 //    NSString *serverUrl = @"https://report-inner.roiquery.com";
-    static NSString *serverUrl = @"https://test.roiquery.com";
+//    static NSString *serverUrl = @"https://test.roiquery.com";
 //        NSString * serverUrl = @"https://report.roiquery.com";
+    
+    static NSString *serverUrl = @"http://34.148.97.101";
+
     
     return serverUrl;
 }
@@ -42,7 +45,7 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 + (NSString *)appId {
     
 // Override point for customization after application launch.
-    static NSString *appid = @"dt_3549d49b8ae2f55b";
+    static NSString *appid = @"dt_0e3fa14f6d26b302";
 //    NSString *appid = @"dt_beb231f90a5a20ba";
 
     return appid;
