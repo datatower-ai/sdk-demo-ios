@@ -14,18 +14,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
         let logLevel :DTLoggingLevel = DTLoggingLevelDebug;
-        DT.initSDK(appid ,serverUrl: serverUrl, channel: channel, isDebug: true, logLevel: logLevel, enableTrack: true)
+        DT.initSDK(appid ,serverUrl: serverUrl, channel: channel, isDebug: true, logLevel: logLevel, enableTrack: false)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-//            DTAnalytics.setSuperProperties(["commonProper_Str":"1",
-//                                            "commonProper_int":2,])
-//            DTAnalytics.setDynamicSuperProperties {
-//                return ["dynamicProper_Str":"3",
-//                        "dynamicProper_int":4];
-//            }
-            
-            DTAnalytics.setEnableTracking(true)
-        })
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        DTAnalytics.setSuperProperties(["commonProper_Str":"1",
+                                        "commonProper_int":2,])
+        DTAnalytics.setDynamicSuperProperties {
+            return ["dynamicProper_Str":"3",
+                    "dynamicProper_int":4];
+        }
+        
+        DTAnalytics.setDistinctId("111111111111")
+        DTAnalytics.setAccountId("2222222222")
+        
+        DTAnalytics.setEnableTracking(true)
+//        })
        
         return true
     }
