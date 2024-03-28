@@ -33,10 +33,10 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 + (NSString *)serverUrl {
 //    NSString *serverUrl = @"https://report-inner.roiquery.com";
-//    static NSString *serverUrl = @"https://test.roiquery.com";
+    static NSString *serverUrl = @"https://test.roiquery.com";
 //        NSString * serverUrl = @"https://report.roiquery.com";
     
-    static NSString *serverUrl = @"http://34.148.97.101";
+//    static NSString *serverUrl = @"http://34.148.97.101";
 
     
     return serverUrl;

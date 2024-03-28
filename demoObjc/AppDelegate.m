@@ -32,7 +32,7 @@
                  @"dynamicProper_int":@4};
     }];
     
-    if(![DTAnalytics getDistinceId]) {
+    if(![DTAnalytics getDistinctId]) {
         [DTAnalytics setDistinctId:@"111111111"];
     }
     [DTAnalytics setAccountId:@"2222222222"];
