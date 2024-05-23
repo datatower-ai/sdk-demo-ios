@@ -10,6 +10,8 @@ target 'demo' do
   # Pods for demo
   $SDKLocalPath="./submodules/DataTowerAICore"
   pod "DataTowerAICore" ,:path => $SDKLocalPath
+#pod "DataTowerAICore", "~> 3.0.0"
+
 
 end
 
@@ -20,6 +22,8 @@ target 'demoObjc' do
   # Pods for demo
   $SDKLocalPath="./submodules/DataTowerAICore"
   pod "DataTowerAICore" ,:path => $SDKLocalPath
+#pod "DataTowerAICore", "~> 3.0.0"
+
   pod "Masonry"
   pod 'QMUIKit'
 #  pod 'ThinkingSDK'  #ThinkingSDK
