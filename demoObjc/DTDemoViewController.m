@@ -23,19 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    // Do any additional setup after loading the view
     
-//    NSDictionary *properties1 = @{
-//        @"product_name":@"商品名",
-//    };
-//    
-//    NSDictionary *properties2 = @{
-//        @"#product_name":@"商品名",
-//    };
-//    
-//    [DTAnalytics trackEventName:@"track_sample" properties:properties1];
-//    [DTAnalytics trackEventName:@"track_sample_invalid" properties:properties2];
-//    
     [self.view addSubview:self.tableView];
     [self.data class];
     self.tableView.dataSource = self;

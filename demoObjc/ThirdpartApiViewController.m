@@ -52,6 +52,9 @@ extern const NSString *star;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onFinishEdit)];
+    [self.view addGestureRecognizer:gesture];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.contentView];
     [self.view addSubview:self.closeBtn];
@@ -115,6 +118,10 @@ extern const NSString *star;
 }
 
 #pragma mark event handle
+
+- (void)onFinishEdit {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
+}
 
 - (void)closeView {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -38,6 +38,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(onFinishEdit)];
+    [self.view addGestureRecognizer:gesture];
+    
     [self.view addSubview:self.appIdInfoView];
     [self.appIdInfoView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left).with.offset(10);
@@ -129,6 +132,10 @@
     vc.serverUrl = serverUrl;
     vc.isDebug = isDebug;
     [UIApplication sharedApplication].keyWindow.rootViewController = vc;
+}
+
+- (void)onFinishEdit {
+    [[[UIApplication sharedApplication] keyWindow] endEditing:YES];
 }
 
 #pragma Getter
