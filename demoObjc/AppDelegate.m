@@ -18,27 +18,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    DTChannel channel  = DTChannelAppStore;
-    DTLoggingLevel logLevel  = DTLoggingLevelDebug;
-    [DT initSDK:[Datasource appId] serverUrl:[Datasource serverUrl] channel:channel isDebug:[Datasource isDebug] logLevel:logLevel enableTrack:NO];
     
-//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [DTAnalytics setSuperProperties:@{@"commonProper_Str":@"1",
-                                      @"commonProper_int":@2
-                                    }];
-    
-    [DTAnalytics setDynamicSuperProperties:^NSDictionary<NSString *,id> * _Nonnull{
-        return @{@"dynamicProper_Str":@"3",
-                 @"dynamicProper_int":@4};
-    }];
-    
-    if(![DTAnalytics getDistinctId]) {
-        [DTAnalytics setDistinctId:@"111111111"];
+#ifdef  DefaultInit
+    {
+        DTChannel channel  = DTChannelAppStore;
+        DTLoggingLevel logLevel  = DTLoggingLevelDebug;
+        [DT initSDK:[Datasource appId] serverUrl:[Datasource serverUrl] channel:channel isDebug:[Datasource isDebug] logLevel:logLevel enableTrack:YES];
+        
+        //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [DTAnalytics setSuperProperties:@{@"commonProper_Str":@"1",
+                                          @"commonProper_int":@2
+                                        }];
+        
+        [DTAnalytics setDynamicSuperProperties:^NSDictionary<NSString *,id> * _Nonnull{
+            return @{@"dynamicProper_Str":@"3",
+                     @"dynamicProper_int":@4};
+        }];
+        
+        if(![DTAnalytics getDistinctId]) {
+            [DTAnalytics setDistinctId:@"111111111"];
+        }
+        [DTAnalytics setAccountId:@"2222222222"];
+        
+        [DTAnalytics setEnableTracking:YES];
+        //    });
     }
-    [DTAnalytics setAccountId:@"2222222222"];
-    
-    [DTAnalytics setEnableTracking:YES];
-//    });
+#endif
     
     return YES;
 }

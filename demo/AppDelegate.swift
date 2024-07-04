@@ -8,9 +8,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appid = "dt_0e3fa14f6d26b302"
+        let appid = "dt_72d4ea7cc24fd77e"
 //        let serverUrl = "https://report-inner.roiquery.com"
-        let serverUrl = "http://34.148.97.101"
+        let serverUrl = "https://test.roiquery.com"
 //        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
         let logLevel :DTLoggingLevel = DTLoggingLevelDebug;

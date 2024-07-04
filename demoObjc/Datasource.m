@@ -11,6 +11,7 @@
 #import "TrackEventViewController.h"
 #import <DataTowerAICore/DTAnalytics.h>
 #import "FullApiViewController.h"
+#import "ThirdpartApiViewController.h"
 
 CellViewModel *makeViewModel(NSString *a, NSString *b, onTapCell c) {
     CellViewModel *ret = [[CellViewModel alloc] initWith:a content:b tapAction:c];
@@ -31,32 +32,6 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 @implementation Datasource
 
-+ (NSString *)serverUrl {
-//    NSString *serverUrl = @"https://report-inner.roiquery.com";
-    static NSString *serverUrl = @"https://private.datatower.ai";
-//        NSString * serverUrl = @"https://report.roiquery.com";
-    
-//    static NSString *serverUrl = @"http://34.148.97.101";
-
-    
-    return serverUrl;
-}
-
-+ (NSString *)appId {
-    
-// Override point for customization after application launch.
-//    static NSString *appid = @"dt_1d5831aea28bbd20";
-    static NSString *appid = @"dt_1942e70da5bfd73b";
-
-//    NSString *appid = @"dt_beb231f90a5a20ba";
-
-    return appid;
-}
-
-+ (BOOL)isDebug {
-//    return NO;
-    return YES;
-}
 
 - (instancetype)init {
     if(self = [super init]) {
@@ -70,15 +45,17 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
     
     self.items = @[
      
-        makeViewModel2(@"isDebug",^{return [NSString stringWithFormat:@"%d", [self.class isDebug]];},^{}),
-        makeViewModel(@"AppId", [self.class appId], nil),
-        makeViewModel(@"ServerUrl", [self.class serverUrl], nil),
+        makeViewModel2(@"isDebug",^{return [NSString stringWithFormat:@"%d", [self isDebug]];},^{}),
+        makeViewModel(@"AppId", [self appId], nil),
+        makeViewModel(@"ServerUrl", [self serverUrl], nil),
         makeViewModel2(@"Get DTID",^{return self.dtIdDesp;},^{[self getDTID];}),
-        makeViewModel2(@"Get DB items", ^{return [NSString stringWithFormat:@"DB Item Count=%d", [self dbCount]];}, ^{ [self notify];}),
+        makeViewModel2(@"Get DB items", ^{return [NSString stringWithFormat:@"DB Item Count=%ld", (long)[self dbCount]];}, ^{ [self notify];}),
         makeViewModel(@"Track event 'dt_track_simple",@"Track an event with name of 'dt_track_simple' and properties of a predefined key-value paris",^{[self trackSimpleEvent];}),
         makeViewModel(@"Track event",@"You'll have to fill in the name of the event and its properties",^{ [self openTrackEventViewController];}),
         makeViewModel(@"User related API",@"You'll have to fill in the name of the user api and its params",^{ [self openUserRelatedAPIController];}),
+        makeViewModel(@"Third part API",@"firebase id set api etc",^{ [self openThirdpartyApiPage];}),
         makeViewModel(@"SDK Full API",@"check all api",^{ [self openFullApiPage];}),
+
     ];
 }
 
@@ -130,6 +107,11 @@ CellViewModel *makeViewModel2(NSString *a, getContent b, onTapCell c) {
 
 - (void)openFullApiPage {
     FullApiViewController *vc = [[FullApiViewController alloc] init];
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)openThirdpartyApiPage {
+    ThirdpartApiViewController *vc = [[ThirdpartApiViewController alloc] init];
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:vc animated:YES completion:nil];
 }
                       

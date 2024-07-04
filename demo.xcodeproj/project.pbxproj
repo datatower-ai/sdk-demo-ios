@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		03931D83309A0D69EC7DF75F /* Pods_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C29DB6A7D4981E57AC6908D5 /* Pods_demo.framework */; };
+		1845760C2C36336300502CC9 /* ThirdpartApiViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845760A2C36336300502CC9 /* ThirdpartApiViewController.m */; };
+		1845760F2C36504700502CC9 /* DTDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1845760D2C36504700502CC9 /* DTDemoViewController.m */; };
 		184FE4332A2487CE00125C5C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4322A2487CE00125C5C /* AppDelegate.m */; };
 		184FE4362A2487CE00125C5C /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4352A2487CE00125C5C /* SceneDelegate.m */; };
 		184FE4392A2487CE00125C5C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 184FE4382A2487CE00125C5C /* ViewController.m */; };
@@ -34,6 +36,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1845760A2C36336300502CC9 /* ThirdpartApiViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdpartApiViewController.m; sourceTree = "<group>"; };
+		1845760B2C36336300502CC9 /* ThirdpartApiViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdpartApiViewController.h; sourceTree = "<group>"; };
+		1845760D2C36504700502CC9 /* DTDemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTDemoViewController.m; sourceTree = "<group>"; };
+		1845760E2C36504700502CC9 /* DTDemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DTDemoViewController.h; sourceTree = "<group>"; };
 		184FE42F2A2487CE00125C5C /* demoObjc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demoObjc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184FE4312A2487CE00125C5C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		184FE4322A2487CE00125C5C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -117,6 +123,8 @@
 				184FE4352A2487CE00125C5C /* SceneDelegate.m */,
 				184FE4372A2487CE00125C5C /* ViewController.h */,
 				184FE4382A2487CE00125C5C /* ViewController.m */,
+				1845760E2C36504700502CC9 /* DTDemoViewController.h */,
+				1845760D2C36504700502CC9 /* DTDemoViewController.m */,
 				184FE43A2A2487CE00125C5C /* Main.storyboard */,
 				184FE43D2A2487CF00125C5C /* Assets.xcassets */,
 				184FE43F2A2487CF00125C5C /* LaunchScreen.storyboard */,
@@ -136,6 +144,8 @@
 				184FE4552A24C01400125C5C /* UserRelatedAPIController.m */,
 				18DF412E2A3ABEAD005EE094 /* FullApiViewController.h */,
 				18DF412F2A3ABEAD005EE094 /* FullApiViewController.m */,
+				1845760B2C36336300502CC9 /* ThirdpartApiViewController.h */,
+				1845760A2C36336300502CC9 /* ThirdpartApiViewController.m */,
 			);
 			path = demoObjc;
 			sourceTree = "<group>";
@@ -216,7 +226,7 @@
 				B56B6CAA29476FE500F96D8D /* Sources */,
 				B56B6CAB29476FE500F96D8D /* Frameworks */,
 				B56B6CAC29476FE500F96D8D /* Resources */,
-				01636FDCB19A3EE832CDB892 /* [CP] Embed Pods Frameworks */,
+				14973B6DE5AF34B809A60C3E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -289,7 +299,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		01636FDCB19A3EE832CDB892 /* [CP] Embed Pods Frameworks */ = {
+		14973B6DE5AF34B809A60C3E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -377,9 +387,11 @@
 				184FE44D2A24AE4B00125C5C /* Datasource.m in Sources */,
 				184FE4392A2487CE00125C5C /* ViewController.m in Sources */,
 				184FE4562A24C01400125C5C /* UserRelatedAPIController.m in Sources */,
+				1845760F2C36504700502CC9 /* DTDemoViewController.m in Sources */,
 				18DF41302A3ABEAD005EE094 /* FullApiViewController.m in Sources */,
 				184FE4332A2487CE00125C5C /* AppDelegate.m in Sources */,
 				184FE4532A24BFFD00125C5C /* TrackEventViewController.m in Sources */,
+				1845760C2C36336300502CC9 /* ThirdpartApiViewController.m in Sources */,
 				184FE4442A2487CF00125C5C /* main.m in Sources */,
 				184FE4502A24B68300125C5C /* CustomCell.m in Sources */,
 				184FE44A2A24A9D300125C5C /* CellViewModel.m in Sources */,
@@ -446,7 +458,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ERCC2N3YJQ;
+				DEVELOPMENT_TEAM = 7UW9N9QSQ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demoObjc/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -460,6 +472,46 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DataTowerAICore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QMUIKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk.linli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -475,11 +527,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7UW9N9QSQ6;
+				DEVELOPMENT_TEAM = 7UW9N9QSQ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demoObjc/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -493,10 +543,49 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AVFoundation\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreImage\"",
+					"-framework",
+					"\"CoreMedia\"",
+					"-framework",
+					"\"CoreServices\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"DataTowerAICore\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"Masonry\"",
+					"-framework",
+					"\"Photos\"",
+					"-framework",
+					"\"PhotosUI\"",
+					"-framework",
+					"\"QMUIKit\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+					"-all_load",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SDKDemoAdHoc;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -625,7 +714,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ERCC2N3YJQ;
+				DEVELOPMENT_TEAM = 7UW9N9QSQ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -654,12 +743,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 7UW9N9QSQ6;
+				DEVELOPMENT_TEAM = 7UW9N9QSQ6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = demo/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -676,7 +763,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.datatower.sdk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = SDKDemoAdHoc;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

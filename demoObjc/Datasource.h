@@ -14,11 +14,12 @@ typedef void(^didLoadData)(void);
 @interface Datasource : NSObject
 
 @property (nonatomic) didLoadData action;
-@property (nonatomic) NSArray *items;
+@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, strong) NSString* serverUrl;
+@property (nonatomic, strong) NSString *appId;
+@property (nonatomic) BOOL isDebug;
 
-+ (NSString *)serverUrl;
-+ (NSString *)appId;
-+ (BOOL)isDebug;
+- (void)prepareData;
 
 @end
 

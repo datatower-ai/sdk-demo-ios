@@ -77,7 +77,7 @@ class ViewController: UIViewController {
                           platform: DTAdPlatformAdmob,
                           location: "home",
                           seq: seq,
-                          mediation: DTAdMediationIdle,
+                          mediation: DTAdMediationAdmob,
                           mediationId: "",
                           properties: ["test":"testString","#test2":"testString2"],
                           entrance: "beat boss")
@@ -90,7 +90,7 @@ class ViewController: UIViewController {
                               platform: DTAdPlatformAdmob,
                               location: "home",
                               seq: seq,
-                              mediation: DTAdMediationIdle,
+                              mediation: DTAdMediationAdmob,
                               mediationId: "",
                               properties: ["test":"testString","#test2":"testString2"],
                               entrance: "beat boss")
@@ -102,7 +102,7 @@ class ViewController: UIViewController {
                                platform: DTAdPlatformAdmob,
                                location: "home",
                                seq: seq,
-                               mediation: DTAdMediationIdle,
+                               mediation: DTAdMediationAdmob,
                                mediationId: "",
                                properties: ["test":"testString","#test2":"testString2"],
                                entrance: "beat boss")
@@ -112,7 +112,7 @@ class ViewController: UIViewController {
                                     platform: DTAdPlatformAdmob,
                                     location: "home",
                                     seq: seq,
-                                    mediation: DTAdMediationIdle,
+                                    mediation: DTAdMediationAdmob,
                                     mediationId: "",
                                     properties: ["test":"testString","#test2":"testString2"],
                                     entrance: "beat boss"
@@ -125,7 +125,7 @@ class ViewController: UIViewController {
                                   platform: DTAdPlatformAdmob,
                                   location: "home",
                                   seq: seq,
-                                  mediation: DTAdMediationIdle,
+                                  mediation: DTAdMediationAdmob,
                                   mediationId: "",
                                   properties: ["test":"testString","#test2":"testString2"],
                                   entrance: "beat boss")
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
                                     platform: DTAdPlatformAdmob,
                                     location: "home",
                                     seq: seq,
-                                    mediation: DTAdMediationIdle,
+                                    mediation: DTAdMediationAdmob,
                                     mediationId: "",
                                     properties: ["test":"testString","#test2":"testString2"],
                                     entrance: "beat boss"
@@ -148,7 +148,7 @@ class ViewController: UIViewController {
                               platform: DTAdPlatformAdmob,
                               location: "home",
                               seq: seq,
-                              mediation: DTAdMediationIdle,
+                              mediation: DTAdMediationAdmob,
                               mediationId: "",
                               value: 5001.12,
                               currency: "01",
@@ -181,7 +181,7 @@ class ViewController: UIViewController {
                                    clickGap: 12000,
                                    returnGap: 20000,
                                    seq: seq,
-                                   mediation: DTAdMediationIdle,
+                                   mediation: DTAdMediationAdmob,
                                    mediationId: "",
                                    properties: ["test":"testString","#test2":"testString2"],
                                    entrance: "main")
@@ -194,7 +194,7 @@ class ViewController: UIViewController {
                                     platform: DTAdPlatformAdmob,
                                     location:"home",
                                     seq: seq,
-                                    mediation: DTAdMediationIdle,
+                                    mediation: DTAdMediationAdmob,
                                     mediationId: "",
                                     errorCode: -1,
                                     errorMessage: "adShowFail",
@@ -209,7 +209,7 @@ class ViewController: UIViewController {
                                  duration: 30,
                                  result: true,
                                  seq: seq,
-                                 mediation: DTAdMediationIdle,
+                                 mediation: DTAdMediationAdmob,
                                  mediationId: "",
                                  errorCode: 0,
                                  errorMessage: "test ad load end",
@@ -221,7 +221,7 @@ class ViewController: UIViewController {
                                     type:DTAdTypeRewarded,
                                     platform: DTAdPlatformAdmob,
                                     seq: seq,
-                                    mediation: DTAdMediationIdle,
+                                    mediation: DTAdMediationAdmob,
                                     mediationId: "",
                                     properties: ["test":"testString","#test2":"testString2"])
     }
@@ -232,7 +232,7 @@ class ViewController: UIViewController {
                                platform: DTAdPlatformAdmob,
                                location: "home",
                                seq: seq,
-                               mediation: DTAdMediationIdle,
+                               mediation: DTAdMediationAdmob,
                                mediationId: "",
                                properties: ["test":"testString","#test2":"testString2"],
                                entrance: "beat boss")
@@ -246,7 +246,7 @@ class ViewController: UIViewController {
                                  platform: DTAdPlatformAdmob,
                                  location: "home",
                                  seq: seq,
-                                 mediation: DTAdMediationIdle,
+                                 mediation: DTAdMediationAdmob,
                                  mediationId: "",
                                  properties: ["test":"testString","#test2":"testString2"],
                                  entrance: "main"
@@ -258,7 +258,7 @@ class ViewController: UIViewController {
                                     platform: DTAdPlatformAdmob,
                                     location: "home",
                                     seq: seq,
-                                    mediation: DTAdMediationIdle,
+                                    mediation: DTAdMediationAdmob,
                                     mediationId: "",
                                     properties: ["test":"testString","#test2":"testString2"],
                                     entrance: "beat boss"
