@@ -8,13 +8,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let appid = "dt_72d4ea7cc24fd77e"
+        let appid = "dt_d4f13c5e2a7c804c"
 //        let serverUrl = "https://report-inner.roiquery.com"
         let serverUrl = "https://test.roiquery.com"
 //        let serverUrl = "https://report.roiquery.com"
         let channel :DTChannel = DTChannelAppStore
         let logLevel :DTLoggingLevel = DTLoggingLevelDebug;
-        DT.initSDK(appid ,serverUrl: serverUrl, channel: channel, isDebug: true, logLevel: logLevel, enableTrack: false)
+        DT.initSDK(appid ,serverUrl: serverUrl, channel: channel, isDebug: false, logLevel: logLevel, enableTrack: false)
         
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
         DTAnalytics.setSuperProperties(["commonProper_Str":"1",
@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     "dynamicProper_int":4];
         }
         
-        DTAnalytics.setDistinctId("111111111111")
+//        DTAnalytics.setDistinctId("111111111111")
         DTAnalytics.setAccountId("2222222222")
         
         DTAnalytics.setEnableTracking(true)
